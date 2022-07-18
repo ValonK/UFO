@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using UFO.UI.Dialogs;
 
 namespace UFO.TestApp
 {
@@ -15,6 +16,12 @@ namespace UFO.TestApp
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				});
+			builder.Services.AddSingleton<MainPage>();
+			builder.Services.AddSingleton<SecondPage>();
+			builder.Services.AddTransient<MainViewModel>();
+			builder.Services.AddTransient<SecondPage>();
+			builder.Services.AddTransient<SecondViewModel>();
+			builder.Services.AddTransient<IDialog, Dialog>();
 
 			return builder.Build();
 		}

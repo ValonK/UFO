@@ -52,4 +52,16 @@
 	  <ProjectReference Include="..\UFO\UFO.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="SecondPage.xaml.cs">
+	    <DependentUpon>SecondPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="SecondPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
