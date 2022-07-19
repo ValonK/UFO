@@ -25,4 +25,10 @@
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.1.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="UI\Controls\UfoCheckBox.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
