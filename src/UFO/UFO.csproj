@@ -18,7 +18,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Folder Include="UI\Dialogs\" />
+	  <MauiXaml Remove="UI\Dialogs\UfoConfirmDialog.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
