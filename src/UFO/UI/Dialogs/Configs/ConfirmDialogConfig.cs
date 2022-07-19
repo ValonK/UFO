@@ -5,7 +5,7 @@ public class ConfirmDialogConfig : BaseConfig
     private static readonly Color DefaultPositiveButtonColor = Color.FromArgb("#7c54d4");
     private static readonly Color DefaultNegativeButtonColor = Colors.White;
     private static readonly Color DefaultFontColor = Colors.Black;
-    private const double DefaultButtonBorderWidth = 0.5;
+    private const double DefaultButtonBorderWidth = 1;
 
     public Color TitleFontColor { get; set; } = DefaultFontColor;
     
@@ -18,8 +18,8 @@ public class ConfirmDialogConfig : BaseConfig
     public TextAlignment TitleHorizontalTextAlignment { get; set; } = TextAlignment.Center;
     
     public TextAlignment TitleVerticalTextAlignment { get; set; } = TextAlignment.Center;
-    
-    public double TitleFontSize { get; set; }
+
+    public double TitleFontSize { get; set; } = 20;
     
     public TextAlignment DescriptionHorizontalTextAlignment { get; set; } = TextAlignment.Center;
     
@@ -28,7 +28,7 @@ public class ConfirmDialogConfig : BaseConfig
     
     public string DescriptionFontFamily { get; set; }
     
-    public Color DescriptionFontColor { get; set; } = DefaultFontColor;
+    public Color DescriptionFontColor { get; set; } = Color.FromArgb("#8f949a");
 
     public string PositiveButtonText { get; set; }
     public Color PositiveButtonColor { get; set; } = DefaultPositiveButtonColor;
@@ -41,9 +41,12 @@ public class ConfirmDialogConfig : BaseConfig
 
     public double PositiveButtonBorderWidth { get; set; } = DefaultButtonBorderWidth;
 
-    public string NegativeButtonText { get; set; }
+    public string PositiveButtonFontFamily { get; set; }
 
-    public double NegativeButtonFontSize { get; set; }
+    public string NegativeButtonText { get; set; }
+    public string NegativeButtonFontFamily { get; set; }
+
+	public double NegativeButtonFontSize { get; set; }
     
     public Color NegativeButtonColor { get; set; } = DefaultNegativeButtonColor;
     
