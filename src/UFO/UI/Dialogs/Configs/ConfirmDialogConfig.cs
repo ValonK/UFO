@@ -1,12 +1,55 @@
 ﻿namespace UFO.UI.Dialogs.Configs;
 
-public abstract class ConfirmDialogConfig : BaseConfig
+public class ConfirmDialogConfig : BaseConfig
 {
-    public Color TitleColor { get; set; }
+    private static readonly Color DefaultPositiveButtonColor = Color.FromArgb("#7c54d4");
+    private static readonly Color DefaultNegativeButtonColor = Colors.White;
+    private static readonly Color DefaultFontColor = Colors.Black;
+    private const double DefaultButtonBorderWidth = 0.5;
 
-    public Color DescriptionColor { get; set; }
+    public Color TitleFontColor { get; set; } = DefaultFontColor;
     
-    public Color PositiveButtonColor { get; set; }
+    public string TitleFontFamily { get; set; }
+    
+    public string Title { get; set; }
 
-    public Color NegativeButtonColor { get; set; }
+    public string Description { get; set; }
+    
+    public TextAlignment TitleHorizontalTextAlignment { get; set; } = TextAlignment.Center;
+    
+    public TextAlignment TitleVerticalTextAlignment { get; set; } = TextAlignment.Center;
+    
+    public double TitleFontSize { get; set; }
+    
+    public TextAlignment DescriptionHorizontalTextAlignment { get; set; } = TextAlignment.Center;
+    
+    public TextAlignment DescriptionVerticalTextAlignment { get; set; } = TextAlignment.Center;
+    public double DescriptionFontSize { get; set; }
+    
+    public string DescriptionFontFamily { get; set; }
+    
+    public Color DescriptionFontColor { get; set; } = DefaultFontColor;
+
+    public string PositiveButtonText { get; set; }
+    public Color PositiveButtonColor { get; set; } = DefaultPositiveButtonColor;
+    
+    public Color PositiveButtonFontColor { get; set; } = Colors.White;
+
+    public double PositiveButtonFontSize { get; set; }
+    
+    public Color PositiveButtonBorderColor { get; set; } = DefaultPositiveButtonColor;
+
+    public double PositiveButtonBorderWidth { get; set; } = DefaultButtonBorderWidth;
+
+    public string NegativeButtonText { get; set; }
+
+    public double NegativeButtonFontSize { get; set; }
+    
+    public Color NegativeButtonColor { get; set; } = DefaultNegativeButtonColor;
+    
+    public Color NegativeButtonFontColor { get; set; } = DefaultFontColor;
+    
+    public double NegativeButtonBorderWidth { get; set; } = DefaultButtonBorderWidth;
+
+    public Color NegativeButtonBorderColor { get; set; } = Color.FromArgb("#e6e8ec");
 }
