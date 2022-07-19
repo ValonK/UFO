@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using Java.Util.Jar;
+﻿using System.Diagnostics;
+using System.Windows.Input;
 using UFO.UI.Dialogs;
 
 namespace UFO.TestApp
@@ -13,6 +13,11 @@ namespace UFO.TestApp
 		{
 			_dialogService = dialogService;
 			TestCommand = new Command(OnTest);
+			CheckedChangedCommand = new Command<bool>(OnCheckedChanged); 
+		}
+
+		private void OnCheckedChanged(bool obj)
+		{
 		}
 
 		private void OnTest(object obj)
@@ -21,6 +26,8 @@ namespace UFO.TestApp
 		}
 
 		public ICommand TestCommand { get; set; }
+		public Command<bool> CheckedChangedCommand { get; set; }
+
 
 		public string Text { get; set; }
 

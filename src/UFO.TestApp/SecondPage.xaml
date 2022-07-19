@@ -12,6 +12,7 @@
 
 			<ufo:UfoCheckBox IsChecked="{Binding IsChecked}"
 							 Text="Hallo"
+							 CheckedChanged="UfoCheckBox_CheckedChanged"
 							 TextColor="Pink"/>
 
 			<Button Text="Test"

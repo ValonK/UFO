@@ -1,8 +1,10 @@
-﻿namespace UFO.UI.Dialogs.Configs;
+﻿using UFO.Utilities;
+
+namespace UFO.UI.Dialogs.Configs;
 
 public class ConfirmDialogConfig : BaseConfig
 {
-    private static readonly Color DefaultPositiveButtonColor = Color.FromArgb("#7c54d4");
+    private static readonly Color DefaultPositiveButtonColor = UfoColors.UfoPrimaryColor;
     private static readonly Color DefaultNegativeButtonColor = Colors.White;
     private static readonly Color DefaultFontColor = Colors.Black;
     private const double DefaultButtonBorderWidth = 1;

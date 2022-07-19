@@ -35,8 +35,7 @@ namespace UFO.UI.Dialogs
 			{
 				HeaderImage.IsVisible = false;
 			}
-
-
+			
 			TitleLabel.Text = _confirmDialogConfiguration.Title;
 			TitleLabel.TextColor = _confirmDialogConfiguration.TitleFontColor;
 			TitleLabel.FontSize = _confirmDialogConfiguration.TitleFontSize;

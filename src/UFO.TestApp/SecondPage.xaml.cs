@@ -1,4 +1,6 @@
-﻿namespace UFO.TestApp
+﻿using System.Diagnostics;
+
+namespace UFO.TestApp
 {
 	public partial class SecondPage : ContentPage
 	{
@@ -14,6 +16,12 @@
 		{
 			base.OnAppearing();
 			_secondViewModel.OnAppearing();
+		}
+
+		private void UfoCheckBox_CheckedChanged(object sender, bool e)
+		{
+			Debug.WriteLine($"IS CHECKED: {e}");
+
 		}
 	}
 }
