@@ -1,9 +1,12 @@
+using UFO.Sample.ViewModels;
+
 namespace UFO.Sample.Pages;
 
-public partial class DialogsPage : ContentPage
+public partial class DialogsPage : BasePage
 {
-	public DialogsPage()
+	public DialogsPage(DialogsViewModel dialogsViewModel)
 	{
 		InitializeComponent();
+		BindingContext = dialogsViewModel;
 	}
 }
