@@ -1,10 +1,10 @@
-namespace UFO.UI.Controls;
+namespace UFO.UI.Controls.Selection;
 
 public partial class UfoCheckBox : BaseSelectionControl
 {
 	public UfoCheckBox()
 	{
-		InitializeComponent();
+		InitializeComponent();		
 	}
 
 	public event EventHandler<bool> CheckedChanged;
@@ -13,5 +13,10 @@ public partial class UfoCheckBox : BaseSelectionControl
 	{
 		CheckedChanged?.Invoke(this, e.Value);
 		CheckedChangedCommand?.Execute(e.Value);
+	}
+
+	private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+	{
+		CheckBox.IsChecked = !CheckBox.IsChecked;
 	}
 }

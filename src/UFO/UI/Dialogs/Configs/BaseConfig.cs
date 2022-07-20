@@ -2,11 +2,7 @@
 
 public abstract class BaseConfig
 {
-    public float CornerRadius { get; set; } = 10;
-
     public Color BackgroundColor { get; set; } = Colors.White;
-
-    public bool HasShadow { get; set; } = false;
     
     public ImageSource HeaderImageSource { get; set; }
     
@@ -14,4 +10,8 @@ public abstract class BaseConfig
     public LayoutOptions HeaderImageVerticalOptions { get; set; } = LayoutOptions.Center;
 
     public bool ShowDontAskAgain { get; set; } = false;
+
+    public string DontAskAgainText { get; set; } = "Dont ask again";
+
+    public Color DontAskAgainFontColor { get; set; } = Color.FromArgb("#808692");
 }

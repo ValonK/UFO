@@ -19,6 +19,10 @@
 
 	<ItemGroup>
 	  <MauiXaml Remove="UI\Dialogs\UfoConfirmDialog.xaml" />
+	  <MauiXaml Update="UI\Controls\Selection\UfoCheckBox.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -26,9 +30,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="UI\Controls\UfoCheckBox.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <Compile Update="UI\Controls\Selection\UfoCheckBox.xaml.cs">
+	    <DependentUpon>UfoCheckBox.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="UI\Controls\Cards" />
 	</ItemGroup>
 
 </Project>

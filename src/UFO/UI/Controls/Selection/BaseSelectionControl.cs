@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using UFO.Utilities;
 
-namespace UFO.UI.Controls;
+namespace UFO.UI.Controls.Selection;
 
 public abstract class BaseSelectionControl : ContentView
 {

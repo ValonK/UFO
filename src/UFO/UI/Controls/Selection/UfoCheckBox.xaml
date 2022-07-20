@@ -2,11 +2,12 @@
 <controls:BaseSelectionControl 
 			 xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:UFO.UI.Controls" 
-			 x:Class="UFO.UI.Controls.UfoCheckBox"
+             xmlns:controls="clr-namespace:UFO.UI.Controls.Selection" 
+			 x:Class="UFO.UI.Controls.Selection.UfoCheckBox"
 			 x:Name="Container">
 	<Grid ColumnDefinitions="Auto, *">
 		<CheckBox Grid.Column="0"
+				  x:Name="CheckBox"
 				  CheckedChanged="CheckBox_CheckedChanged"
 				  Color="{Binding Source={x:Reference Container}, Path=Color}"
 				  IsChecked="{Binding Source={x:Reference Container}, Path=IsChecked}"/>
@@ -15,6 +16,10 @@
 			   VerticalTextAlignment="Center"
 			   Text="{Binding Source={x:Reference Container}, Path=Text}"
 			   FontFamily="{Binding Source={x:Reference Container}, Path=FontFamily}"
-			   TextColor="{Binding Source={x:Reference Container}, Path=TextColor}"/>
+			   TextColor="{Binding Source={x:Reference Container}, Path=TextColor}">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+			</Label.GestureRecognizers>
+		</Label>
 	</Grid>
 </controls:BaseSelectionControl>

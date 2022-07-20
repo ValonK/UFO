@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<dialogs:BaseDialog  
+	           xmlns:dialogs="clr-namespace:UFO.UI.Dialogs"
+	           xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:checkbox="clr-namespace:UFO.UI.Controls.Selection"
+			   xmlns:system="clr-namespace:System;assembly=netstandard"
+               x:Class="UFO.UI.Dialogs.Confirm.ConfirmDialog" >
+	
+	<Frame x:Name="DialogContainer"
+		   HorizontalOptions="Center"
+		   VerticalOptions="Center"
+		   IsClippedToBounds="True"
+		   MaximumWidthRequest="{OnIdiom Phone=350, Tablet=400}"
+		   MinimumHeightRequest="{OnIdiom Phone=350, Tablet=400}">
+		
+		<Grid RowDefinitions="Auto, Auto, Auto, Auto"
+			  RowSpacing="10">
+			<Image Grid.Row="0"
+				   MinimumHeightRequest="50"
+				   x:Name="HeaderImage">
+				<Image.Triggers>
+					<Trigger TargetType="Image" Property="Source" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Image.Triggers>
+			</Image>
+			
+			<Label x:Name="TitleLabel"
+				   Grid.Row="1"/>
+
+			<Label x:Name="DescriptionLabel"
+				   LineBreakMode="WordWrap"
+				   Grid.Row="2">
+				<Label.Triggers>
+					<Trigger TargetType="Label" Property="Text" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+					<Trigger TargetType="Label" Property="Text" Value="{x:Static system:String.Empty}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Label.Triggers>
+			</Label>
+
+			<Grid Grid.Row="3"
+				  x:Name="ActionGrid"
+				  Margin="0,0,0,0"
+				  ColumnDefinitions="Auto, *, *">
+
+				<checkbox:UfoCheckBox Grid.Column="0"
+									
+									  x:Name="DontAskAgainCheckBox"
+									  Margin="0,0,10,0"/>
+
+				<Button x:Name="NegativeButton"
+						Grid.Column="1"
+						Margin="0,0,10,0"/>
+
+				<Button x:Name="PositiveButton"
+						Grid.Column="2"	/>
+			</Grid>
+		</Grid>
+	</Frame>
+</dialogs:BaseDialog>
