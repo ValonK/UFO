@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UFO.Sample.Pages.Dialogs.ConfirmDialogPage"
+             Title="Confirm Dialog"
+			 xmlns:viewModel="clr-namespace:UFO.Sample.ViewModels"
+			 x:DataType="viewModel:ConfirmDialogViewModel">
+	<ScrollView>
+		<VerticalStackLayout Spacing="10"
+							 Margin="10,10,10,0">
+			<Button Text="Confirm Dialog"
+					Command="{Binding ConfirmDialogCommand}"/>
+			<Button Text="Confirm Dialog with Dont ask again"
+					Command="{Binding ConfirmDialogWithDontAskAgainCommand}"/>
+			<Button Text="Confirm Dialog with Header Image"
+					Command="{Binding ConfirmDialogWithHeaderImageCommand}"/>
+			<Button Text="Confirm Dialog with Font Header Image"
+					Command="{Binding ConfirmDialogWithFontHeaderImageCommand}"/>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

@@ -49,6 +49,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\drawable-hdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-mdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxxhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable\headerimage.png" />
+	  <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview4" />
 	  <PackageReference Include="Goldie.MauiPlugins.PageResolver" Version="1.0.6" />
 	</ItemGroup>
@@ -59,6 +69,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\DialogsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Dialogs\ConfirmDialogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\MainPage.xaml">

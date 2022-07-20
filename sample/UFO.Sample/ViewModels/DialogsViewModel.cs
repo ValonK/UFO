@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel.__Internals;
 using CommunityToolkit.Mvvm.Input;
+using UFO.Sample.Pages.Dialogs;
 using UFO.UI.Dialogs;
 
 namespace UFO.Sample.ViewModels
@@ -16,8 +17,7 @@ namespace UFO.Sample.ViewModels
 		[RelayCommand]
 		private async Task ShowConfirmDialog()
 		{
-			var result = await _ufoDialog.ShowConfirmDialogAsync("Information",
-				"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat");
+			await Shell.Current.GoToAsync(nameof(ConfirmDialogPage));
 		}		
 		
 		public override void OnAppearing()

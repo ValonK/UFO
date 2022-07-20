@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui;
-using Maui.Plugins.PageResolver;
 using UFO.Sample.Pages;
-using UFO.Sample.Services;
+using UFO.Sample.Pages.Dialogs;
 using UFO.Sample.ViewModels;
 using UFO.UI.Dialogs;
 
@@ -17,6 +16,7 @@ public static class MauiProgram
 			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
+				fonts.AddFont("materialdesignicons-webfont.ttf", "MaterialDesignIcons");
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
@@ -24,9 +24,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<MainViewModel>();
 		builder.Services.AddTransient<DialogsPage>();
 		builder.Services.AddTransient<DialogsViewModel>();
+		builder.Services.AddTransient<ConfirmDialogPage>();
+		builder.Services.AddTransient<ConfirmDialogViewModel>();
 		builder.Services.AddSingleton<IUfoDialog, UfoDialog>();
-		builder.Services.AddSingleton<INavigationService, NavigationService>();
-		builder.Services.UsePageResolver();
 		return builder.Build();
 	}
 }
