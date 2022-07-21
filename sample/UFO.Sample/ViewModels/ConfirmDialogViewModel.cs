@@ -37,8 +37,10 @@ public partial class ConfirmDialogViewModel : BaseViewModel
 	{
 		var confirmDialogConfig = new ConfirmDialogConfig
 		{
-			HeaderImageSource = new FileImageSource() { File = "headerimage.png" },
-			HeaderImageHorizontalOptions = LayoutOptions.Start 
+			IconSource = new FileImageSource() { File = "headerimage.png" },
+			IconHorizontalOptions = LayoutOptions.Start,
+			IconHeight = 30,
+			IconWidth = 30
 		};
 
 		var result = await _ufoDialog.ShowConfirmDialogAsync("Title", LoremImpsum, config: confirmDialogConfig);
@@ -49,13 +51,13 @@ public partial class ConfirmDialogViewModel : BaseViewModel
 	{
 		var confirmDialogConfig = new ConfirmDialogConfig
 		{
-			HeaderImageSource = new FontImageSource { 
+			IconSource = new FontImageSource { 
 				FontFamily = MaterialDesignIcons, 
 				Color = Color.FromArgb("#7c54d4"),
 				Size = 30,
 				Glyph = "\U000f04d2",
 			},
-			HeaderImageHorizontalOptions = LayoutOptions.Start
+			IconHorizontalOptions = LayoutOptions.Start
 		};
 
 		var result = await _ufoDialog.ShowConfirmDialogAsync("Title", LoremImpsum, config: confirmDialogConfig);

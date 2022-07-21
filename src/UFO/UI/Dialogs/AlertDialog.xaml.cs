@@ -40,11 +40,13 @@ public partial class AlertDialog : Dialog, IAwaitableDialog
 		DialogContainer.CornerRadius = 15;
 		DialogContainer.BackgroundColor = alertDialogConfig.BackgroundColor;
 
-		if (alertDialogConfig.HeaderImageSource != null)
+		if (alertDialogConfig.IconSource != null)
 		{
-			HeaderImage.Source = alertDialogConfig.HeaderImageSource;
-			HeaderImage.VerticalOptions = alertDialogConfig.HeaderImageVerticalOptions;
-			HeaderImage.HorizontalOptions = alertDialogConfig.HeaderImageHorizontalOptions;
+			HeaderImage.Source = alertDialogConfig.IconSource;
+			HeaderImage.VerticalOptions = alertDialogConfig.IconVerticalOptions;
+			HeaderImage.HorizontalOptions = alertDialogConfig.IconHorizontalOptions;
+			HeaderImage.HeightRequest = alertDialogConfig.IconHeight;
+			HeaderImage.WidthRequest = alertDialogConfig.IconWidth;
 		}
 
 		TitleLabel.Text = alertDialogConfig.Title;

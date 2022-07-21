@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<dialogs:Dialog  
-	           xmlns:dialogs="clr-namespace:UFO.UI.Dialogs"
-	           xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-               xmlns:checkbox="clr-namespace:UFO.UI.Controls.Selection"
-			   xmlns:system="clr-namespace:System;assembly=netstandard"
-               x:Class="UFO.UI.Dialogs.ConfirmDialog">
+<dialogs:Dialog xmlns:dialogs="clr-namespace:UFO.UI.Dialogs"
+	            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                xmlns:checkbox="clr-namespace:UFO.UI.Controls.Selection"
+			    xmlns:system="clr-namespace:System;assembly=netstandard"
+                x:Class="UFO.UI.Dialogs.ConfirmDialog">
 	
 	<Frame x:Name="DialogContainer"
 		   HorizontalOptions="Center"
@@ -29,10 +28,12 @@
 			</Image>
 			
 			<Label x:Name="TitleLabel"
-				   Grid.Row="1"/>
+				   Grid.Row="1"
+				   VerticalTextAlignment="Center"/>
 
 			<Label x:Name="DescriptionLabel"
 				   LineBreakMode="WordWrap"
+				   VerticalTextAlignment="Center"
 				   Grid.Row="2">
 				<Label.Triggers>
 					<Trigger TargetType="Label" Property="Text" Value="{x:Null}">
@@ -45,11 +46,13 @@
 			</Label>
 
 			<Grid Grid.Row="3"
+				  HeightRequest="40"
 				  VerticalOptions="End"
 				  x:Name="ActionGrid"
 				  ColumnDefinitions="Auto, *, *">
 
 				<checkbox:UfoCheckBox Grid.Column="0"
+									  HorizontalOptions="Start"
 									  x:Name="DontAskAgainCheckBox"
 									  Margin="0,0,10,0"/>
 

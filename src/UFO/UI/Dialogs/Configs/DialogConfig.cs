@@ -12,11 +12,15 @@ public abstract class DialogConfig
 
     public Color BackgroundColor { get; set; } = Colors.White;
 
-    public ImageSource HeaderImageSource { get; set; }
+    public ImageSource IconSource { get; set; }
 
-    public LayoutOptions HeaderImageHorizontalOptions { get; set; } = LayoutOptions.Center;
+    public double IconHeight { get; set; } = 25;
 
-    public LayoutOptions HeaderImageVerticalOptions { get; set; } = LayoutOptions.Center;
+    public double IconWidth { get; set; } = 25;
+
+    public LayoutOptions IconHorizontalOptions { get; set; } = LayoutOptions.Center;
+
+    public LayoutOptions IconVerticalOptions { get; set; } = LayoutOptions.Center;
 
     public string Description { get; set; }
 

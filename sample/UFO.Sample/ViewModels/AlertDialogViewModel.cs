@@ -26,8 +26,8 @@ namespace UFO.Sample.ViewModels
 		{
 			var config = new AlertDialogConfig
 			{
-				HeaderImageSource = new FileImageSource() { File = "headerimage.png" },
-				HeaderImageHorizontalOptions = LayoutOptions.Start
+				IconSource = new FileImageSource() { File = "headerimage.png" },
+				IconHorizontalOptions = LayoutOptions.Start
 			};
 
 			await _ufoDialog.ShowAlertDialogAsync("Title", LoremImpsum, config: config);
@@ -38,14 +38,14 @@ namespace UFO.Sample.ViewModels
 		{
 			var config = new AlertDialogConfig
 			{
-				HeaderImageSource = new FontImageSource
+				IconSource = new FontImageSource
 				{
 					FontFamily = MaterialDesignIcons,
 					Color = Color.FromArgb("#7c54d4"),
 					Size = 30,
 					Glyph = "\U000f04d2",
 				},
-				HeaderImageHorizontalOptions = LayoutOptions.Start
+				IconHorizontalOptions = LayoutOptions.Start
 			};
 
 			await _ufoDialog.ShowAlertDialogAsync("Title", LoremImpsum, config: config);

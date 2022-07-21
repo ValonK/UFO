@@ -8,6 +8,7 @@
 	<Grid ColumnDefinitions="Auto, *">
 		<CheckBox Grid.Column="0"
 				  x:Name="CheckBox"
+				  HorizontalOptions="Start"
 				  CheckedChanged="CheckBox_CheckedChanged"
 				  Color="{Binding Source={x:Reference Container}, Path=Color}"
 				  IsChecked="{Binding Source={x:Reference Container}, Path=IsChecked}"/>

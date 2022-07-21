@@ -43,11 +43,13 @@ public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialo
 		DialogContainer.CornerRadius = 15;
 		DialogContainer.BackgroundColor = confirmDialogConfig.BackgroundColor;
 
-		if (confirmDialogConfig.HeaderImageSource != null)
+		if (confirmDialogConfig.IconSource != null)
 		{
-			HeaderImage.Source = confirmDialogConfig.HeaderImageSource;
-			HeaderImage.VerticalOptions = confirmDialogConfig.HeaderImageVerticalOptions;
-			HeaderImage.HorizontalOptions = confirmDialogConfig.HeaderImageHorizontalOptions;
+			HeaderImage.Source = confirmDialogConfig.IconSource;
+			HeaderImage.VerticalOptions = confirmDialogConfig.IconVerticalOptions;
+			HeaderImage.HorizontalOptions = confirmDialogConfig.IconHorizontalOptions;
+			HeaderImage.HeightRequest = confirmDialogConfig.IconHeight;
+			HeaderImage.WidthRequest= confirmDialogConfig.IconWidth;
 		}
 
 		TitleLabel.Text = confirmDialogConfig.Title;
