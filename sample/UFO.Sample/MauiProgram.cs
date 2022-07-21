@@ -26,6 +26,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<DialogsViewModel>();
 		builder.Services.AddTransient<ConfirmDialogPage>();
 		builder.Services.AddTransient<ConfirmDialogViewModel>();
+		builder.Services.AddTransient<AlertDialogPage>();
+		builder.Services.AddTransient<AlertDialogViewModel>();
 		builder.Services.AddSingleton<IUfoDialog, UfoDialog>();
 		return builder.Build();
 	}

@@ -18,8 +18,14 @@ namespace UFO.Sample.ViewModels
 		private async Task ShowConfirmDialog()
 		{
 			await Shell.Current.GoToAsync(nameof(ConfirmDialogPage));
-		}		
-		
+		}
+
+		[RelayCommand]
+		private async Task ShowAlertDialog()
+		{
+			await Shell.Current.GoToAsync(nameof(AlertDialogPage));
+		}
+
 		public override void OnAppearing()
 		{
 			base.OnAppearing();

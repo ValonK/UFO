@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UFO.Sample.Pages.Dialogs.AlertDialogPage"
+             Title="AlertDialogPage"
+			 xmlns:page="clr-namespace:UFO.Sample.Pages"   
+			 xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels"
+			 x:DataType="viewModels:AlertDialogViewModel">
+	<ScrollView>
+		<VerticalStackLayout Spacing="10"
+							 Margin="10,10,10,0">
+			<Button Text="Alert Dialog"
+					Command="{Binding AlertDialogCommand}"/>
+			<Button Text="Alert Dialog with Header Image"
+					Command="{Binding AlertDialogWithHeaderImageCommand}"/>
+			<Button Text="Alert Dialog with Font Header Image"
+					Command="{Binding AlertDialogWithFontHeaderImageCommand}"/>
+		</VerticalStackLayout>
+	</ScrollView>
+</page:BasePage>

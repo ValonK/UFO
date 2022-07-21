@@ -11,5 +11,6 @@ public partial class AppShell
 
 		Routing.RegisterRoute(nameof(DialogsPage), typeof(DialogsPage));
 		Routing.RegisterRoute(nameof(ConfirmDialogPage), typeof(ConfirmDialogPage));
+		Routing.RegisterRoute(nameof(AlertDialogPage), typeof(AlertDialogPage));
 	}
 }

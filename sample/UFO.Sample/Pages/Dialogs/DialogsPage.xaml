@@ -4,12 +4,15 @@
 			   xmlns:page="clr-namespace:UFO.Sample.Pages"   
 			   xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels"
 			   x:Class="UFO.Sample.Pages.Dialogs.DialogsPage"
-               Title="DialogsPage">
+               Title="DialogsPage"
+				x:DataType="viewModels:DialogsViewModel">
 	
 	<ScrollView>
-		<VerticalStackLayout Margin="10,30,10,0">
+		<VerticalStackLayout Margin="10,30,10,0"
+							 Spacing="10">
+			<Button Text="Alert Dialog"
+				Command="{Binding ShowAlertDialogCommand}"/>
 			<Button Text="Confirm Dialog"
-				x:DataType="viewModels:DialogsViewModel"
 				Command="{Binding ShowConfirmDialogCommand}"/>
 		</VerticalStackLayout>
 	</ScrollView>
