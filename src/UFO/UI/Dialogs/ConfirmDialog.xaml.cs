@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Maui.Views;
 using UFO.UI.Dialogs.Configs;
 
-namespace UFO.UI.Dialogs.Confirm;
+namespace UFO.UI.Dialogs;
 
-public partial class ConfirmDialog : BaseDialog, IAwaitableDialog<ConfirmDialogResult>
+public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialogResult>
 {
 	private ConfirmDialog(ConfirmDialogConfig confirmDialogConfig)
 	{
@@ -13,12 +13,14 @@ public partial class ConfirmDialog : BaseDialog, IAwaitableDialog<ConfirmDialogR
 
 	public TaskCompletionSource<ConfirmDialogResult> TaskCompletionSource { get; set; }
 
-	public static async Task<ConfirmDialogResult> ShowAsync(string title, string description, string positiveButton = "Ok",
-		string negativeButton = "Cancel", ConfirmDialogConfig confirmDialogConfig = null)
+	public static async Task<ConfirmDialogResult> ShowAsync(string title, string description = "", string confirmText = "Ok",
+		string declineText = "Cancel", ConfirmDialogConfig confirmDialogConfig = null)
 	{
 		confirmDialogConfig ??= new ConfirmDialogConfig();
-		confirmDialogConfig.PositiveButtonText = positiveButton;
-		confirmDialogConfig.NegativeButtonText = negativeButton;
+		confirmDialogConfig.ConfirmButtonConfig ??= new DialogButtonConfig();
+		confirmDialogConfig.ConfirmButtonConfig.Text = confirmText;
+		confirmDialogConfig.DeclineButtonConfig ??= new DialogButtonConfig();
+		confirmDialogConfig.DeclineButtonConfig.Text = declineText;
 		confirmDialogConfig.Title = title;
 		confirmDialogConfig.Description = description;
 
@@ -33,7 +35,6 @@ public partial class ConfirmDialog : BaseDialog, IAwaitableDialog<ConfirmDialogR
 		}
 
 		await MainPage.ShowPopupAsync(dialog);
-
 		return await dialog.TaskCompletionSource.Task;
 	}
 
@@ -58,25 +59,25 @@ public partial class ConfirmDialog : BaseDialog, IAwaitableDialog<ConfirmDialogR
 		DescriptionLabel.TextColor = confirmDialogConfig.DescriptionFontColor;
 		DescriptionLabel.FontFamily = confirmDialogConfig.DescriptionFontFamily;
 
-		NegativeButton.BackgroundColor = confirmDialogConfig.NegativeButtonColor;
-		NegativeButton.Text = confirmDialogConfig.NegativeButtonText;
-		NegativeButton.FontFamily = confirmDialogConfig.NegativeButtonFontFamily;
-		NegativeButton.BorderColor = confirmDialogConfig.NegativeButtonBorderColor;
-		NegativeButton.BorderWidth = confirmDialogConfig.NegativeButtonBorderWidth;
-		NegativeButton.TextColor = confirmDialogConfig.NegativeButtonFontColor;
-		NegativeButton.Clicked += (sender, args) =>
+		DeclineButton.Background = confirmDialogConfig.DeclineButtonConfig.Background;
+		DeclineButton.Text = confirmDialogConfig.DeclineButtonConfig.Text;
+		DeclineButton.FontFamily = confirmDialogConfig.DeclineButtonConfig.FontFamily;
+		DeclineButton.BorderColor = confirmDialogConfig.DeclineButtonConfig.BorderColor;
+		DeclineButton.BorderWidth = confirmDialogConfig.DeclineButtonConfig.BorderWidth;
+		DeclineButton.TextColor = confirmDialogConfig.DeclineButtonConfig.TextColor;
+		DeclineButton.Clicked += (sender, args) =>
 		{
 			OnClosed(null, false);
 			TaskCompletionSource.TrySetResult(new(DontAskAgainCheckBox.IsChecked, false));
 		};
 
-		PositiveButton.BackgroundColor = confirmDialogConfig.PositiveButtonColor;
-		PositiveButton.Text = confirmDialogConfig.PositiveButtonText;
-		PositiveButton.FontFamily = confirmDialogConfig.PositiveButtonFontFamily;
-		PositiveButton.BorderColor = confirmDialogConfig.NegativeButtonBorderColor;
-		PositiveButton.BorderWidth = confirmDialogConfig.NegativeButtonBorderWidth;
-		PositiveButton.TextColor = confirmDialogConfig.PositiveButtonFontColor;
-		PositiveButton.Clicked += (sender, args) =>
+		ConfirmButton.Background = confirmDialogConfig.ConfirmButtonConfig.Background;
+		ConfirmButton.Text = confirmDialogConfig.ConfirmButtonConfig.Text;
+		ConfirmButton.FontFamily = confirmDialogConfig.ConfirmButtonConfig.FontFamily;
+		ConfirmButton.BorderColor = confirmDialogConfig.ConfirmButtonConfig.BorderColor;
+		ConfirmButton.BorderWidth = confirmDialogConfig.ConfirmButtonConfig.BorderWidth;
+		ConfirmButton.TextColor = confirmDialogConfig.ConfirmButtonConfig.TextColor;
+		ConfirmButton.Clicked += (sender, args) =>
 		{
 			OnClosed(null, false);
 			TaskCompletionSource.TrySetResult(new(DontAskAgainCheckBox.IsChecked, true));

@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Maui.Views;
 namespace UFO.UI.Dialogs;
 
-public abstract class BaseDialog : Popup
+public abstract class Dialog : Popup
 {
-	protected BaseDialog()
+	protected Dialog()
 	{
 		CanBeDismissedByTappingOutsideOfPopup = false;
 		Color = Colors.Transparent;

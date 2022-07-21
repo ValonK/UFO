@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dialogs:Dialog xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:checkbox="clr-namespace:UFO.UI.Controls.Selection"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:dialogs="clr-namespace:UFO.UI.Dialogs"
+             x:Class="UFO.UI.Dialogs.AlertDialog">
+
+	<Frame x:Name="DialogContainer"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           IsClippedToBounds="True"
+           MaximumWidthRequest="{OnIdiom Phone=350, Tablet=400, Desktop=500}"
+           MinimumHeightRequest="{OnIdiom Phone=350, Tablet=300, Desktop=300}">
+
+		<Grid RowDefinitions="Auto, Auto, Auto, *"
+              RowSpacing="10">
+			<Image Grid.Row="0"
+                   MinimumHeightRequest="50"
+                   x:Name="HeaderImage">
+				<Image.Triggers>
+					<Trigger TargetType="Image" Property="Source" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Image.Triggers>
+			</Image>
+
+			<Label x:Name="TitleLabel"
+                   Grid.Row="1"/>
+
+			<Label x:Name="DescriptionLabel"
+                   LineBreakMode="WordWrap"
+                   Grid.Row="2">
+				<Label.Triggers>
+					<Trigger TargetType="Label" Property="Text" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+					<Trigger TargetType="Label" Property="Text" Value="{x:Static system:String.Empty}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Label.Triggers>
+			</Label>
+
+			<Button x:Name="PositiveButton"
+                    Grid.Row="3"
+                    VerticalOptions="End"	/>
+		</Grid>
+	</Frame>
+</dialogs:Dialog>

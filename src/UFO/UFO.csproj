@@ -23,6 +23,13 @@
 	    <SubType>Designer</SubType>
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="UI\Dialogs\AlertDialog.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Dialogs\ConfirmDialog.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -32,6 +39,14 @@
 	<ItemGroup>
 	  <Compile Update="UI\Controls\Selection\UfoCheckBox.xaml.cs">
 	    <DependentUpon>UfoCheckBox.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="UI\Dialogs\AlertDialog.xaml.cs">
+	    <DependentUpon>AlertDialog.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="UI\Dialogs\ConfirmDialog.xaml.cs">
+	    <DependentUpon>ConfirmDialog.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>

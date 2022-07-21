@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<dialogs:BaseDialog  
+<dialogs:Dialog  
 	           xmlns:dialogs="clr-namespace:UFO.UI.Dialogs"
 	           xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                xmlns:checkbox="clr-namespace:UFO.UI.Controls.Selection"
 			   xmlns:system="clr-namespace:System;assembly=netstandard"
-               x:Class="UFO.UI.Dialogs.Confirm.ConfirmDialog" >
+               x:Class="UFO.UI.Dialogs.ConfirmDialog">
 	
 	<Frame x:Name="DialogContainer"
 		   HorizontalOptions="Center"
 		   VerticalOptions="Center"
 		   IsClippedToBounds="True"
-		   MaximumWidthRequest="{OnIdiom Phone=350, Tablet=400}"
-		   MinimumHeightRequest="{OnIdiom Phone=350, Tablet=400}">
+		   MaximumWidthRequest="{OnIdiom Phone=370, Tablet=400, Desktop=500}"
+		   MinimumHeightRequest="{OnIdiom Phone=350, Tablet=350, Desktop=300}">
 		
-		<Grid RowDefinitions="Auto, Auto, Auto, Auto"
+		<Grid RowDefinitions="Auto, Auto, Auto, *"
 			  RowSpacing="10">
 			<Image Grid.Row="0"
 				   MinimumHeightRequest="50"
@@ -45,22 +45,21 @@
 			</Label>
 
 			<Grid Grid.Row="3"
+				  VerticalOptions="End"
 				  x:Name="ActionGrid"
-				  Margin="0,0,0,0"
 				  ColumnDefinitions="Auto, *, *">
 
 				<checkbox:UfoCheckBox Grid.Column="0"
-									
 									  x:Name="DontAskAgainCheckBox"
 									  Margin="0,0,10,0"/>
 
-				<Button x:Name="NegativeButton"
+				<Button x:Name="DeclineButton"
 						Grid.Column="1"
 						Margin="0,0,10,0"/>
 
-				<Button x:Name="PositiveButton"
+				<Button x:Name="ConfirmButton"
 						Grid.Column="2"	/>
 			</Grid>
 		</Grid>
 	</Frame>
-</dialogs:BaseDialog>
+</dialogs:Dialog>
