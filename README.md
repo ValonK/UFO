@@ -1,7 +1,7 @@
 
 # UFO 🛸
 
-A collection of **.NET MAUI** Controls & Dialogs (still under heavy development)
+A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development & not released yet :)
 
 ## Contents
 
@@ -22,6 +22,8 @@ A collection of **.NET MAUI** Controls & Dialogs (still under heavy development)
 1. Download the [NuGet Package](https://www.google.com) and install it in your .NET MAUI project.
 2. Make sure to use ```.UseMauiCommunityToolkit()``` in your ```MauiProgram.cs```.
 3. Checkout the [Sample Application](https://github.com/ValonK/UFO/tree/main/sample/UFO.Sample).
+
+## Features
 
 ## Cards
 
