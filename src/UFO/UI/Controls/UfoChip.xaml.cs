@@ -1,3 +1,5 @@
+using System.Windows.Input;
+
 namespace UFO.UI.Controls;
 
 public partial class UfoChip : ContentView
@@ -41,6 +43,24 @@ public partial class UfoChip : ContentView
 	{
 		get => (ImageSource)GetValue(CloseIconImageSourceProperty);
 		set => SetValue(CloseIconImageSourceProperty, value);
+	}
+
+	public static readonly BindableProperty CloseCommandProperty =
+		BindableProperty.Create(nameof(CloseCommand), typeof(ICommand), typeof(UfoChip));
+
+	public ICommand CloseCommand
+	{
+		get => (ICommand)GetValue(CloseCommandProperty);
+		set => SetValue(CloseCommandProperty, value);
+	}
+
+	public static readonly BindableProperty CommandProperty =
+		BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(UfoChip));
+
+	public ICommand Command
+	{
+		get => (ICommand)GetValue(CommandProperty);
+		set => SetValue(CommandProperty, value);
 	}
 
 	public static readonly BindableProperty TextProperty =
