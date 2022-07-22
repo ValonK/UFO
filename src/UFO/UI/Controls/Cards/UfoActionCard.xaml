@@ -24,10 +24,10 @@
 			<Button x:Name="ActionButton"
 					Grid.Row="0"
 					Padding="0"
-					HorizontalOptions="{Binding Source={x:Reference CardRoot}, Path=ActionIconLayoutOptions}"
-					ImageSource="{Binding Source={x:Reference CardRoot}, Path=ActionIconImageSource}"
-					Background="{Binding Source={x:Reference CardRoot}, Path=ActionIconBackground}"
-					Command="{Binding Source={x:Reference CardRoot}, Path=ActionIconCommand}"
+					HorizontalOptions="{Binding Source={x:Reference CardRoot}, Path=IconLayoutOptions}"
+					ImageSource="{Binding Source={x:Reference CardRoot}, Path=IconImageSource}"
+					Background="{Binding Source={x:Reference CardRoot}, Path=IconBackground}"
+					Command="{Binding Source={x:Reference CardRoot}, Path=IconCommand}"
 					VerticalOptions="End"
 					IsVisible="{Binding Source={x:Reference CardRoot}, Path=HasActionButton}"/>
 

@@ -35,15 +35,15 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 
 ```HasActionButton``` - Enable / Disable Action Icon Button
 
-```ActionIconSize``` - The size of the Action Icon Button
+```IconSize``` - The size of the Action Icon Button
 
-```ActionIconLayoutOptions``` - Controls the Position of the Action Icon Button 
+```IconLayoutOptions``` - Controls the Position of the Icon Button 
 
-```ActionIconImageSource``` - The ImageSource of the Action Icon Button
+```IconImageSource``` - The ImageSource of the Icon Button
 
-```ActionIconBackground``` - The Background of the Action Icon Button: Color, Gradient
+```IconBackground``` - The Background of the Icon Button: Color, Gradient
 
-```ActionIconCommand``` - The Command of the Action Icon Button
+```IconCommand``` - The Command of the Icon Button
 
 ```TopView``` - The Top View of the Action Card
 
@@ -55,26 +55,25 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 
 #### Sample Code
 ```xaml
-<cards:UfoActionCard ActionIconSize="60"
-                     ActionIconLayoutOptions="End">
-    <cards:UfoActionCard.ActionIconBackground>
+<cards:UfoActionCard IconSize="60"
+                     IconLayoutOptions="End">
+    <cards:UfoActionCard.IconBackground>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="{StaticResource Primary}" Offset="0.5" />
             <GradientStop Color="#fa05c9" Offset="0.8" />
         </LinearGradientBrush>
-    </cards:UfoActionCard.ActionIconBackground>
-    <cards:UfoActionCard.ActionIconImageSource>
+    </cards:UfoActionCard.IconBackground>
+    <cards:UfoActionCard.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFont}"
                          Glyph="{x:Static icon:IconFont.Ufo}"
                          Color="White"
                          Size="30"/>
-    </cards:UfoActionCard.ActionIconImageSource>
+    </cards:UfoActionCard.IconImageSource>
     <cards:UfoActionCard.TopView>
         <Image Source="cardimage.png" Aspect="AspectFill"/>
     </cards:UfoActionCard.TopView>
     <cards:UfoActionCard.BottomView>
-      <Grid>
-      </Grid>
+      <Grid/>
     </cards:UfoActionCard.BottomView>
 </cards:UfoActionCard>
 ```

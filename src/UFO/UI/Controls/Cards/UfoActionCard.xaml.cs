@@ -37,61 +37,61 @@ public partial class UfoActionCard : Card
 		set => SetValue(BottomViewProperty, value);
 	}
 
-	public static readonly BindableProperty ActionIconCommandProperty =
-		BindableProperty.Create(nameof(ActionIconCommand), typeof(ICommand), typeof(UfoActionCard));
+	public static readonly BindableProperty IconCommandProperty =
+		BindableProperty.Create(nameof(IconCommand), typeof(ICommand), typeof(UfoActionCard));
 
-	public ICommand ActionIconCommand
+	public ICommand IconCommand
 	{
-		get => (ICommand)GetValue(ActionIconCommandProperty);
-		set => SetValue(ActionIconCommandProperty, value);
+		get => (ICommand)GetValue(IconCommandProperty);
+		set => SetValue(IconCommandProperty, value);
 	}
 
-	public static readonly BindableProperty ActionIconBackgroundProperty =
-		BindableProperty.Create(nameof(ActionIconBackground), typeof(Brush), typeof(UfoActionCard));
+	public static readonly BindableProperty IconBackgroundProperty =
+		BindableProperty.Create(nameof(IconBackground), typeof(Brush), typeof(UfoActionCard));
 
-	public Brush ActionIconBackground
+	public Brush IconBackground
 	{
-		get => (Brush)GetValue(ActionIconBackgroundProperty);
-		set => SetValue(ActionIconBackgroundProperty, value);
+		get => (Brush)GetValue(IconBackgroundProperty);
+		set => SetValue(IconBackgroundProperty, value);
 	}
 
-	public static readonly BindableProperty ActionIconImageSourceProperty =
-		BindableProperty.Create(nameof(ActionIconImageSource), typeof(ImageSource), typeof(UfoActionCard));
+	public static readonly BindableProperty IconImageSourceProperty =
+		BindableProperty.Create(nameof(IconImageSource), typeof(ImageSource), typeof(UfoActionCard));
 
-	public ImageSource ActionIconImageSource
+	public ImageSource IconImageSource
 	{
-		get => (ImageSource)GetValue(ActionIconImageSourceProperty);
-		set => SetValue(ActionIconImageSourceProperty, value);
+		get => (ImageSource)GetValue(IconImageSourceProperty);
+		set => SetValue(IconImageSourceProperty, value);
 	}
 
-	public static readonly BindableProperty ActionIconLayoutOptionsProperty =
-	BindableProperty.Create(nameof(ActionIconLayoutOptions), typeof(LayoutOptions), typeof(UfoActionCard));
+	public static readonly BindableProperty IconLayoutOptionsProperty =
+	BindableProperty.Create(nameof(IconLayoutOptions), typeof(LayoutOptions), typeof(UfoActionCard));
 
-	public LayoutOptions ActionIconLayoutOptions
+	public LayoutOptions IconLayoutOptions
 	{
-		get => (LayoutOptions)GetValue(ActionIconLayoutOptionsProperty);
-		set => SetValue(ActionIconLayoutOptionsProperty, value);
+		get => (LayoutOptions)GetValue(IconLayoutOptionsProperty);
+		set => SetValue(IconLayoutOptionsProperty, value);
 	}
 
-	public static readonly BindableProperty ActionSizeProperty =
-		BindableProperty.Create(nameof(ActionIconSize), typeof(double), typeof(UfoActionCard));
+	public static readonly BindableProperty IconSizeProperty =
+		BindableProperty.Create(nameof(IconSize), typeof(double), typeof(UfoActionCard));
 
-	public double ActionIconSize
+	public double IconSize
 	{
-		get => (double)GetValue(ActionSizeProperty);
-		set => SetValue(ActionSizeProperty, value);
+		get => (double)GetValue(IconSizeProperty);
+		set => SetValue(IconSizeProperty, value);
 	}
 	
 	protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
 	{
 		base.OnPropertyChanged(propertyName);
 
-		if (propertyName == nameof(ActionIconSize))
+		if (propertyName == nameof(IconSize))
 		{
-			ActionButton.HeightRequest = ActionIconSize;
-			ActionButton.WidthRequest= ActionIconSize;
+			ActionButton.HeightRequest = IconSize;
+			ActionButton.WidthRequest= IconSize;
 
-			var cornerRadius = (int)(ActionIconSize / 2);
+			var cornerRadius = (int)(IconSize / 2);
 			ActionButton.CornerRadius = cornerRadius;
 			ActionButton.Margin = new Thickness(0, 0, 10, -cornerRadius);
 		}

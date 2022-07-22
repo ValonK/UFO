@@ -10,23 +10,22 @@
 		<VerticalStackLayout Padding="10"
 							 Spacing="15">
 			
-			<cards:UfoActionCard ActionIconSize="60"
-								 ActionIconLayoutOptions="End">
-				<cards:UfoActionCard.ActionIconBackground>
+			<cards:UfoActionCard IconSize="60"
+								 IconLayoutOptions="End">
+				<cards:UfoActionCard.IconBackground>
 					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
 						<GradientStop Color="#fa05c9" Offset="0.8" />
 					</LinearGradientBrush>
-				</cards:UfoActionCard.ActionIconBackground>
-				<cards:UfoActionCard.ActionIconImageSource>
+				</cards:UfoActionCard.IconBackground>
+				<cards:UfoActionCard.IconImageSource>
 					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-										 Glyph="{x:Static icon:IconFont.Ufo}"
-										 Color="White"
-										 Size="30"/>
-				</cards:UfoActionCard.ActionIconImageSource>
+								     Glyph="{x:Static icon:IconFont.Ufo}"
+									 Color="White"
+									 Size="30"/>
+				</cards:UfoActionCard.IconImageSource>
 				<cards:UfoActionCard.TopView>
-					<Image Source="cardimage.png"
-							   Aspect="AspectFill"/>
+					<Image Source="cardimage.png" Aspect="AspectFill"/>
 				</cards:UfoActionCard.TopView>
 				<cards:UfoActionCard.BottomView>
 					<Grid RowDefinitions="Auto, Auto"
