@@ -33,25 +33,25 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 
 #### Properties
 
-```HasActionButton``` - Enable / Disable Action Icon Button
+```HasActionButton``` - Activate/Deactivate Action Icon Button 
 
-```IconSize``` - The size of the Action Icon Button
+```IconSize``` - The Action Icon Button's size 
 
-```IconLayoutOptions``` - Controls the Position of the Icon Button 
+```IconLayoutOptions``` - Controls the icon button's position.  
 
-```IconImageSource``` - The ImageSource of the Icon Button
+```IconImageSource``` - The Icon Button's ImageSource 
 
-```IconBackground``` - The Background of the Icon Button: Color, Gradient
+```IconBackground``` - The Icon Button's Background: Color or Gradient 
 
-```IconCommand``` - The Command of the Icon Button
+```IconCommand``` - The Icon Button's Command 
 
-```TopView``` - The Top View of the Action Card
+```TopView``` - The Action Card's Top View 
 
-```BottomView``` - The Bottom View of the Action Card
+```BottomView``` - The Action Card's bottom view 
 
-```BorderColor``` - The Border Color of the Action Card
+```BorderColor``` - The Action Card's Border Color 
 
-```CornerRadius``` - The Corner Radius of the Action Card
+```CornerRadius``` - The Action Card's Corner Radius 
 
 #### Sample Code
 ```xaml
@@ -76,6 +76,49 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
       <Grid/>
     </cards:UfoActionCard.BottomView>
 </cards:UfoActionCard>
+```
+
+## Chips
+
+<img src="https://github.com/ValonK/UFO/blob/main/assets/controls/chips/chip.png?raw=true" width="209" height="67">  
+
+```ChipBorderColor``` - Color of the Chip's Border 
+
+```ChipBackground``` - Chip's Background: Color, Gradient
+
+```IconImageSource``` - Image Source of the Chip's Icon 
+
+```CloseIconImageSource``` - Image Source of the Chip's Close Icon 
+
+```CloseCommand``` - Chips's Close Command
+
+```Command``` - Chips's Command
+
+```Text``` - Chips's Text
+
+```FontFamily``` - Chips's Font Family
+
+```TextColor``` - Chips's Text Color
+
+#### Sample Code
+
+```xaml
+<controls:UfoChip ChipBackground="{StaticResource Primary}"
+                  Text="Chip 3"
+                  HorizontalOptions="Center"
+                  TextColor="White">
+         <controls:UfoChip.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="{x:Static icon:IconFont.Ufo}"
+                             Color="White"/>
+         </controls:UfoChip.IconImageSource>
+         <controls:UfoChip.CloseIconImageSource>
+            <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="{x:Static icon:IconFont.Close}"
+                             Color="White"
+                             Size="16"/>
+          </controls:UfoChip.CloseIconImageSource>
+</controls:UfoChip>
 ```
 
 ## Dialogs
