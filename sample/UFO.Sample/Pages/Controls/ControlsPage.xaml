@@ -10,6 +10,10 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+			<Button Command="{Binding OpenChipsCommand}"
+					Text="Chips"
+					x:DataType="viewModels:ControlsViewModel"/>
+			
 			<Button Command="{Binding OpenCardsCommand}"
 					Text="Cards"
 					x:DataType="viewModels:ControlsViewModel"/>

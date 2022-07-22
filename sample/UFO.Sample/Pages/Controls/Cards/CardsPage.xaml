@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UFO.Sample.Pages.Controls.Cards.CardsPage"
-			 xmlns:icon="clr-namespace:UFO.Sample.Helpers"
-			 xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
-			 xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
-             Title="CardsPage">
+<base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="UFO.Sample.Pages.Controls.Cards.CardsPage"
+			   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
+			   xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
+			   xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
+		       xmlns:base="clr-namespace:UFO.Sample.Pages"
+               Title="Cards Page">
 	<ScrollView>
 		<VerticalStackLayout Padding="10"
 							 Spacing="15">
-			
 			<cards:UfoActionCard IconSize="60"
 								 IconLayoutOptions="End">
 				<cards:UfoActionCard.IconBackground>
@@ -29,42 +29,41 @@
 				</cards:UfoActionCard.TopView>
 				<cards:UfoActionCard.BottomView>
 					<Grid RowDefinitions="Auto, Auto"
-							  Padding="15"
-							  RowSpacing="20">
-
+						  Padding="15"
+						  RowSpacing="20">
 						<VerticalStackLayout Grid.Row="0"
-												 Spacing="10">
+											 Spacing="10">
 							<Label Text="Action Card"
-									   FontAttributes="Bold"
-									   TextColor="Black"
+								   FontAttributes="Bold"
+								   TextColor="Black"
 								   FontSize="22"
-									   VerticalTextAlignment="Center"/>
+								   VerticalTextAlignment="Center"/>
 							<Label Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam nonumy eirmod  magna aliquyam erat sed diam nonumy tempor invidunt"
-									   TextColor="Black"
-									   VerticalTextAlignment="Center"/>
+								   TextColor="Black"
+								   VerticalTextAlignment="Center"/>
 						</VerticalStackLayout>
 
 						<HorizontalStackLayout Grid.Row="1"
 											   Spacing="10">
 							<controls:UfoChip ChipBackground="{StaticResource Primary}"
-												  Text="Chip 1"
-												  TextColor="White">
+											  Text="Chip 1"
+											  TextColor="White">
 								<controls:UfoChip.IconImageSource>
 									<FontImageSource FontFamily="{StaticResource MaterialFont}"
-														 Glyph="{x:Static icon:IconFont.Ufo}"
-														 Color="White"
-														 Size="20"/>
+													 Glyph="{x:Static icon:IconFont.Ufo}"
+													 Color="White"
+													 Size="20"/>
 								</controls:UfoChip.IconImageSource>
 							</controls:UfoChip>
 
 							<controls:UfoChip ChipBackground="{StaticResource Primary}"
-												  Text="Chip 2"
-												  TextColor="White">
+											  Text="Chip 2"
+											  TextColor="White">
 								<controls:UfoChip.IconImageSource>
 									<FontImageSource FontFamily="{StaticResource MaterialFont}"
-														 Glyph="{x:Static icon:IconFont.Ufo}"
-														 Color="White"
-														 Size="20"/>
+													 Glyph="{x:Static icon:IconFont.Ufo}"
+													 Color="White"
+													 Size="20"/>
 								</controls:UfoChip.IconImageSource>
 							</controls:UfoChip>
 						</HorizontalStackLayout>
@@ -72,7 +71,5 @@
 				</cards:UfoActionCard.BottomView>
 			</cards:UfoActionCard>
 		</VerticalStackLayout>
-
-
 	</ScrollView>
-</ContentPage>
+</base:BasePage>

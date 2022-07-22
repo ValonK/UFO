@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="UFO.Sample.Pages.Controls.ChipsPage"
+			   xmlns:base="clr-namespace:UFO.Sample.Pages"
+			   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
+			   xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
+               Title="Chips Page">
+	<ScrollView>
+		<HorizontalStackLayout Padding="10"
+							   VerticalOptions="Center"
+							   Spacing="15">
+
+			<controls:UfoChip ChipBackground="{StaticResource Primary}"
+							  Text="Chip 1"
+							  HorizontalOptions="Center"
+							  TextColor="White"/>
+
+			<controls:UfoChip ChipBackground="{StaticResource Primary}"
+							  Text="Chip 2"
+							  HorizontalOptions="Center"
+							  TextColor="White">
+				<controls:UfoChip.IconImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+									 Glyph="{x:Static icon:IconFont.Ufo}"/>
+				</controls:UfoChip.IconImageSource>
+			</controls:UfoChip>
+
+			<controls:UfoChip ChipBackground="{StaticResource Primary}"
+							  Text="Chip 3"
+							  HorizontalOptions="Center"
+							  TextColor="White">
+				<controls:UfoChip.IconImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+									 Glyph="{x:Static icon:IconFont.Ufo}"
+									 Color="White"/>
+				</controls:UfoChip.IconImageSource>
+				<controls:UfoChip.CloseIconImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+									 Glyph="{x:Static icon:IconFont.Close}"
+									 Color="White"
+									 Size="16"/>
+				</controls:UfoChip.CloseIconImageSource>
+			</controls:UfoChip>
+		</HorizontalStackLayout>
+	</ScrollView>
+</base:BasePage>

@@ -16,5 +16,6 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(AlertDialogPage), typeof(AlertDialogPage));
 		Routing.RegisterRoute(nameof(ControlsPage), typeof(ControlsPage));
 		Routing.RegisterRoute(nameof(CardsPage), typeof(CardsPage));
+		Routing.RegisterRoute(nameof(ChipsPage), typeof(ChipsPage));
 	}
 }
