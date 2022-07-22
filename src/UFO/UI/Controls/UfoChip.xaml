@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UFO.UI.Controls.UfoChip"
+			 x:Name="ChipRoot"
+			 VerticalOptions="Center"
+			 IsClippedToBounds="True">
+	
+	<Frame CornerRadius="17"
+		   Padding="5"
+		   x:Name="ChipContainer"
+		   HeightRequest="34"
+		   BorderColor="{Binding Source={x:Reference ChipRoot}, Path=ChipBorderColor}"
+		   IsClippedToBounds="True"
+		   Background="{Binding Source={x:Reference ChipRoot}, Path=ChipBackground}">
+		<Grid ColumnDefinitions="Auto, *, Auto"
+			  ColumnSpacing="5">
+			<Image Grid.Column="0"
+				   VerticalOptions="Center"
+				   Source="{Binding Source={x:Reference ChipRoot}, Path=IconImageSource}">
+				<Image.Triggers>
+					<Trigger TargetType="Image" Property="Source" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Image.Triggers>
+			</Image>
+
+			<Label Grid.Column="1"
+				   Margin="0,0,5,0"
+				   VerticalTextAlignment="Center"
+				   HorizontalTextAlignment="Center"
+				   Text="{Binding Source={x:Reference ChipRoot}, Path=Text}"
+				   TextColor="{Binding Source={x:Reference ChipRoot}, Path=TextColor}"
+				   FontFamily="{Binding Source={x:Reference ChipRoot}, Path=FontFamily}"/>
+
+			<Image Grid.Column="2"
+				   VerticalOptions="Center"
+				   Source="{Binding Source={x:Reference ChipRoot}, Path=CloseIconImageSource}">
+				<Image.Triggers>
+					<Trigger TargetType="Image" Property="Source" Value="{x:Null}">
+						<Setter Property="IsVisible" Value="False" />
+					</Trigger>
+				</Image.Triggers>
+			</Image>
+		</Grid>
+	</Frame>
+</ContentView>

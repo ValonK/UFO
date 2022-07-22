@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<card:Card xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:card="clr-namespace:UFO.UI.Controls.Cards"       
+	       x:Class="UFO.UI.Controls.Cards.UfoActionCard"
+		   x:Name="CardRoot">
+	
+	<Frame x:Name="CardContainer"
+		   Padding="0"
+		   BorderColor="{Binding Source={x:Reference CardRoot}, Path=BorderColor}"
+		   CornerRadius="{Binding Source={x:Reference CardRoot}, Path=CornerRadius}">
+		<Grid RowDefinitions="*, *">
+
+			<ContentView x:Name="BottomContentView"
+						 Grid.Row="1"
+						 Content="{Binding Source={x:Reference CardRoot}, Path=BottomView}"
+						 Padding="0"/>
+
+			<ContentView x:Name="TopContentView"
+						 Grid.Row="0"
+						 Content="{Binding Source={x:Reference CardRoot}, Path=TopView}"
+						 Padding="0"/>
+
+			<Button x:Name="ActionButton"
+					Grid.Row="0"
+					Padding="0"
+					HorizontalOptions="{Binding Source={x:Reference CardRoot}, Path=ActionIconLayoutOptions}"
+					ImageSource="{Binding Source={x:Reference CardRoot}, Path=ActionIconImageSource}"
+					Background="{Binding Source={x:Reference CardRoot}, Path=ActionIconBackground}"
+					Command="{Binding Source={x:Reference CardRoot}, Path=ActionIconCommand}"
+					VerticalOptions="End"
+					IsVisible="{Binding Source={x:Reference CardRoot}, Path=HasActionButton}"/>
+
+		</Grid>
+	</Frame>
+</card:Card>

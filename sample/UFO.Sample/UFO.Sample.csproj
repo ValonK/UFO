@@ -56,6 +56,7 @@
 	  <None Remove="Platforms\Android\Resources\drawable-xxxhdpi\headerimage.png" />
 	  <None Remove="Platforms\Android\Resources\drawable\headerimage.png" />
 	  <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
+	  <None Remove="Resources\Images\cardimage.png" />
 	  <None Remove="Resources\Images\headerimage.png" />
 	</ItemGroup>
 
@@ -69,6 +70,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\Controls\Cards\CardsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Controls\ControlsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\DialogsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

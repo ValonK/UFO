@@ -19,8 +19,14 @@
 
 	<ItemGroup>
 	  <MauiXaml Remove="UI\Dialogs\UfoConfirmDialog.xaml" />
+	  <MauiXaml Update="UI\Controls\Cards\UfoActionCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UI\Controls\Selection\UfoCheckBox.xaml">
 	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Controls\UfoChip.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UI\Dialogs\AlertDialog.xaml">
@@ -37,6 +43,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="UI\Controls\Cards\UfoActionCard.xaml.cs">
+	    <DependentUpon>UfoActionCard.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UI\Controls\Selection\UfoCheckBox.xaml.cs">
 	    <DependentUpon>UfoCheckBox.xaml</DependentUpon>
 	    <SubType>Code</SubType>
@@ -49,10 +58,6 @@
 	    <DependentUpon>ConfirmDialog.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="UI\Controls\Cards" />
 	</ItemGroup>
 
 </Project>

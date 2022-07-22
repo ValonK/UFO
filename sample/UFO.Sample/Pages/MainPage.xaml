@@ -11,6 +11,10 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+			<Button Command="{Binding OpenControlsCommand}"
+					Text="Controls"
+					x:DataType="viewModels:MainViewModel"/>
+			
 			<Button Command="{Binding OpenDialogsCommand}"
 					Text="Dialogs"
 					x:DataType="viewModels:MainViewModel"/>
