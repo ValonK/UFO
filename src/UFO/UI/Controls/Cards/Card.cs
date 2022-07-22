@@ -15,4 +15,12 @@ public abstract class Card : ContentView
 		set => SetValue(CornerRadiusProperty, value);
 	}
 
+	public static readonly BindableProperty BorderColorProperty =
+		BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(Card), defaultValue: Colors.LightGray);
+
+	public Color BorderColor
+	{
+		get => (Color)GetValue(BorderColorProperty);
+		set => SetValue(BorderColorProperty, value);
+	}
 }

@@ -11,8 +11,6 @@
 							 Spacing="15">
 			
 			<cards:UfoActionCard ActionIconSize="60"
-								 WidthRequest="400"
-								 HeightRequest="500"
 								 ActionIconLayoutOptions="End">
 				<cards:UfoActionCard.ActionIconBackground>
 					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

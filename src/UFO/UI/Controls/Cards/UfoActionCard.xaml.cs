@@ -10,15 +10,6 @@ public partial class UfoActionCard : Card
 		InitializeComponent();
 	}
 
-	public static readonly BindableProperty BorderColorProperty =
-		BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(UfoActionCard), defaultValue: Colors.Transparent);
-
-	public Color BorderColor
-	{
-		get => (Color)GetValue(BorderColorProperty);
-		set => SetValue(BorderColorProperty, value);
-	}
-
 	public static readonly BindableProperty HasActionButtonProperty =
 		BindableProperty.Create(nameof(HasActionButton), typeof(bool), typeof(UfoActionCard), defaultValue: true);
 
