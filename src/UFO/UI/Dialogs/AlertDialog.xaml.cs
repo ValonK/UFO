@@ -21,10 +21,7 @@ public partial class AlertDialog : Dialog, IAwaitableDialog
 		alertDialogConfig.Title = title;
 		alertDialogConfig.Description = description;
 
-		var dialog = new AlertDialog(alertDialogConfig)
-		{
-			TaskCompletionSource = new TaskCompletionSource()
-		};
+		var dialog = new AlertDialog(alertDialogConfig) { TaskCompletionSource = new() };
 		
 		if (Application.Current == null)
 		{

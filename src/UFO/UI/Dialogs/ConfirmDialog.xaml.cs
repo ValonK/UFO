@@ -24,10 +24,7 @@ public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialo
 		confirmDialogConfig.Title = title;
 		confirmDialogConfig.Description = description;
 
-		var dialog = new ConfirmDialog(confirmDialogConfig)
-		{
-			TaskCompletionSource = new TaskCompletionSource<ConfirmDialogResult>()
-		};
+		var dialog = new ConfirmDialog(confirmDialogConfig) { TaskCompletionSource = new() };
 
 		if (Application.Current == null)
 		{

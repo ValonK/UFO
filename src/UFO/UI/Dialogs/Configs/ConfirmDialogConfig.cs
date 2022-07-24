@@ -18,7 +18,7 @@ public sealed class ConfirmDialogConfig : DialogConfig
         Background = new SolidColorBrush(Colors.White),
         TextColor = UfoDeclineButtonFontColor,
         BorderWidth = UfoSizes.DefaultButtonBorderWidth,
-        BorderColor = UfoDecloneButtonBorderColor
+        BorderColor = UfoDeclineButtonBorderColor
     };
 
 	public Color DontAskAgainFontColor { get; set; } = Color.FromArgb("#808692");
