@@ -5,7 +5,7 @@ namespace UFO.UI.Dialogs;
 
 public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialogResult>
 {
-	private ConfirmDialog(ConfirmDialogConfig confirmDialogConfig)
+	internal ConfirmDialog(ConfirmDialogConfig confirmDialogConfig)
 	{
 		InitializeComponent();
 		ConfigureDialog(confirmDialogConfig);

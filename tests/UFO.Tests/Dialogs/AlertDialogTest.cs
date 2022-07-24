@@ -6,6 +6,7 @@ using Xunit;
 
 namespace UFO.Tests.Dialogs;
 
+[Collection("Sequential")]
 public class AlertDialogTest : DialogTest
 {
     [Fact]
