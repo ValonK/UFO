@@ -10,6 +10,7 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
   - [Controls](#controls)
     - [Cards](#cards)
       - [Action Card](#action)
+      - [Avatar Card](#avatar)
       - [Parallax Card](#parallax)
     - [CheckBox](#checkbox)
     - [Chips](#chips) 
@@ -76,6 +77,76 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
       <Grid/>
     </cards:UfoActionCard.BottomView>
 </cards:UfoActionCard>
+```
+
+### Avatar
+
+<img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/avatarcard.png?raw=true" width="554" height="570">  
+
+#### Properties
+
+```AvatarBackgroundColor``` - The color of the Avatar's background 
+
+```AvatarBorderColor``` - The Color of the Avatar's Border 
+
+```AvatarBorderWidth``` - Border Width of the Avatar 
+
+```AvatarSize``` - Size of the Avatar 
+
+```AvatarText``` - Text of the Avatar 
+
+```AvatarImageSource``` - Sources for the Avatar's Image: File, Font, Web 
+
+```AvatarPadding``` - Padding of the Avatar
+
+```AvatarTextColor``` - The text color of the avatar  
+
+```BorderColor``` - Color of the Card's Border  
+
+```CornerRadius``` - Radius of the Card's Corners 
+
+```TopView``` - The Card's top view  
+
+```BottomView``` - The Card's bottom view  
+
+```Command``` - The Card's tapped command 
+
+```CloseImageSource``` - The Image Source of the Close Button 
+
+```CloseBackground``` - The Background of the Close Button 
+
+```CloseCommand``` - The Close Button tapped command 
+
+```CloseSize``` - The Size of the Close Button
+
+#### Sample Code
+
+```xaml
+<cards:UfoAvatarCard AvatarTextColor="Black"
+                     AvatarBorderWidth="20"
+                     AvatarBorderColor="{StaticResource Primary}"
+                     AvatarSize="80" 
+                     AvatarText="JD"
+                     CloseSize="20">
+      <cards:UfoAvatarCard.CloseImageSource>
+          <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                           Size="15"
+                           Glyph="{x:Static icon:IconFont.Close}"
+                           Color="White"/>
+      </cards:UfoAvatarCard.CloseImageSource>
+        <cards:UfoAvatarCard.CloseBackground>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{StaticResource Primary}" Offset="0.5" />
+            <GradientStop Color="#fa05c9" Offset="0.8" />
+          </LinearGradientBrush>
+      </cards:UfoAvatarCard.CloseBackground>
+        <cards:UfoAvatarCard.TopView>
+           <Image Source="cardimage.png" Aspect="AspectFill"/>
+        </cards:UfoAvatarCard.TopView>
+      <cards:UfoAvatarCard.BottomView>
+          <Grid/>
+      </cards:UfoAvatarCard.BottomView>
+</cards:UfoAvatarCard>
 ```
 
 ## Chips
