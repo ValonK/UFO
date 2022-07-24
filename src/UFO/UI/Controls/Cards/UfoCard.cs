@@ -9,12 +9,12 @@ public abstract class UfoCard : ContentView
 	public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(UfoCard), defaultValue: Colors.LightGray);
 	public static readonly BindableProperty TopViewProperty = BindableProperty.Create(nameof(TopView), typeof(View), typeof(UfoCard));
 	public static readonly BindableProperty BottomViewProperty = BindableProperty.Create(nameof(BottomView), typeof(View), typeof(UfoCard));
-	public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(UfoCard));
+	public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(UfoCard), defaultValue: 2.0);
 	public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(UfoCard));
 	public static readonly BindableProperty CloseImageSourceProperty = BindableProperty.Create(nameof(CloseImageSource), typeof(ImageSource), typeof(UfoAvatarCard));
 	public static readonly BindableProperty CloseCommandProperty = BindableProperty.Create(nameof(CloseCommand), typeof(ICommand), typeof(UfoAvatarCard));
 	public static readonly BindableProperty CloseBackgroundProperty = BindableProperty.Create(nameof(CloseBackground), typeof(Brush), typeof(UfoAvatarCard));
-	public static readonly BindableProperty CloseSizeProperty = BindableProperty.Create(nameof(CloseSize), typeof(double), typeof(UfoAvatarCard), defaultValue: 20);
+	public static readonly BindableProperty CloseSizeProperty = BindableProperty.Create(nameof(CloseSize), typeof(double), typeof(UfoAvatarCard), defaultValue: 20.0);
 	
 	public float CornerRadius
 	{

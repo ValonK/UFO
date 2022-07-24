@@ -8,7 +8,7 @@ public abstract class UfoSelectionControl : ContentView
 	public static readonly BindableProperty CheckedChangedCommandProperty = BindableProperty.Create(nameof(CheckedChangedCommand), typeof(ICommand), typeof(UfoSelectionControl));
 	public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(UfoSelectionControl));
 	public static readonly BindableProperty IsCheckedProperty = BindableProperty.Create(nameof(IsChecked), typeof(bool), typeof(UfoSelectionControl), defaultBindingMode: BindingMode.TwoWay);
-	public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(UfoSelectionControl), defaultValue: string.Empty);
+	public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(UfoSelectionControl));
 	public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(UfoSelectionControl), defaultValue: Colors.Black);
 	public static readonly BindableProperty ColorProperty = BindableProperty.Create(nameof(Color), typeof(Color), typeof(UfoSelectionControl), defaultValue: UfoColors.UfoPrimaryColor);
 	
