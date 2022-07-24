@@ -5,7 +5,7 @@ namespace UFO.UI.Dialogs;
 
 public partial class AlertDialog : Dialog, IAwaitableDialog
 {
-	private AlertDialog(AlertDialogConfig alertDialogConfig)
+	internal AlertDialog(AlertDialogConfig alertDialogConfig)
 	{
 		InitializeComponent();
 		ConfigureDialog(alertDialogConfig);

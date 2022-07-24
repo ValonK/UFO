@@ -25,8 +25,4 @@
     <ProjectReference Include="..\..\src\UFO\UFO.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dialogs" />
-  </ItemGroup>
-
 </Project>
