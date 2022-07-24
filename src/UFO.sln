@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UFO.Sample", "..\sample\UFO
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8BF77B69-933B-404B-B5F6-09302FA086C7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UFO.Tests", "..\tests\UFO.Tests\UFO.Tests.csproj", "{982C22C9-B2FC-4DFD-BB8C-878286369BA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{D82B1B08-46FA-4BC2-BA34-04160977BFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D82B1B08-46FA-4BC2-BA34-04160977BFFA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D82B1B08-46FA-4BC2-BA34-04160977BFFA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{982C22C9-B2FC-4DFD-BB8C-878286369BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982C22C9-B2FC-4DFD-BB8C-878286369BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982C22C9-B2FC-4DFD-BB8C-878286369BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982C22C9-B2FC-4DFD-BB8C-878286369BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D454134C-F21E-4461-B0C5-DB74BEED74BA} = {6224061D-8498-40C7-BCFB-B4A75487ADF7}
 		{D82B1B08-46FA-4BC2-BA34-04160977BFFA} = {73D68239-AFDD-4934-8191-66D02D82ACAE}
+		{982C22C9-B2FC-4DFD-BB8C-878286369BA6} = {8BF77B69-933B-404B-B5F6-09302FA086C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52C63392-D632-4073-938A-2FD03977331A}
