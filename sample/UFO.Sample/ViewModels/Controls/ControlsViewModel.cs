@@ -17,5 +17,11 @@ public partial class ControlsViewModel : BaseViewModel
 	{
 		await Shell.Current.GoToAsync(nameof(CardsPage));
 	}
+
+	[RelayCommand]
+	public async Task OpenSelectionControlsAsync()
+	{
+		await Shell.Current.GoToAsync(nameof(SelectionControlsPage));
+	}
 }
 

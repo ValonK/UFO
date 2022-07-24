@@ -5,13 +5,31 @@
 			   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
 			   xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
 			   xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
+			   xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls"
 		       xmlns:base="clr-namespace:UFO.Sample.Pages"
                Title="Cards Page">
+
+	<base:BasePage.Resources>
+		<ResourceDictionary>
+			
+			<LinearGradientBrush x:Key="Gradient" StartPoint="0,0" EndPoint="1,1">
+				<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
+				<GradientStop Color="#fa05c9" Offset="0.8" />
+			</LinearGradientBrush>
+
+			<Image x:Key="BackgroundImage" Source="cardimage.png" Aspect="AspectFill"/>
+		</ResourceDictionary>
+	</base:BasePage.Resources>
+	
 	<ScrollView>
 		<VerticalStackLayout Padding="10"
-							 Spacing="15">
-			<cards:UfoActionCard IconSize="60"
-								 IconLayoutOptions="End">
+							 Spacing="15"
+						     Margin="50,0,50,0"							
+							 x:DataType="viewModels:CardsViewModel">
+			<cards:UfoActionCard IconSize="50"
+								 x:DataType="viewModels:CardsViewModel"
+								 IconLayoutOptions="End"
+								 IconCommand="{Binding TestCommand}">
 				<cards:UfoActionCard.IconBackground>
 					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
@@ -70,6 +88,50 @@
 					</Grid>
 				</cards:UfoActionCard.BottomView>
 			</cards:UfoActionCard>
+
+			<cards:UfoAvatarCard AvatarTextColor="Black"
+								 AvatarBorderWidth="20"
+								 AvatarBorderColor="{StaticResource Primary}"
+								 AvatarSize="80" 
+								 AvatarText="JD"
+								 CloseSize="20">
+				<cards:UfoAvatarCard.CloseImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+									 Size="15"
+									 Glyph="{x:Static icon:IconFont.Close}"
+									 Color="White"/>
+				</cards:UfoAvatarCard.CloseImageSource>
+				<cards:UfoAvatarCard.CloseBackground>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
+						<GradientStop Color="#fa05c9" Offset="0.8" />
+					</LinearGradientBrush>
+				</cards:UfoAvatarCard.CloseBackground>
+				<cards:UfoAvatarCard.TopView>
+					<Image Source="cardimage.png" Aspect="AspectFill"/>
+				</cards:UfoAvatarCard.TopView>
+				<cards:UfoAvatarCard.BottomView>
+					<Grid Padding="10">
+						<VerticalStackLayout Spacing="10"
+											 VerticalOptions="Center">
+							<HorizontalStackLayout HorizontalOptions="Center"
+												   VerticalOptions="Center">
+								<Label Text="John"
+									   FontAttributes="Bold"
+									   HorizontalOptions="Center"
+									   TextColor="Black"/>
+								<Label Text=" Doe"
+									   FontAttributes="Bold"
+									   TextColor="Black"/>
+							</HorizontalStackLayout>
+
+							<Label Text="john.doe@gmail.com"
+								   HorizontalOptions="Center"
+							       TextColor="Black"/>
+						</VerticalStackLayout>
+					</Grid>
+				</cards:UfoAvatarCard.BottomView>
+			</cards:UfoAvatarCard>
 		</VerticalStackLayout>
 	</ScrollView>
 </base:BasePage>
