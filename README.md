@@ -1,7 +1,8 @@
 
 # UFO 🛸
 
-A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development & not released yet :)
+**.NET MAUI** Controls & Dialogs for Windows, iOS, and Android. Still being developed **not** yet released
+
 
 ## Contents
 
@@ -9,14 +10,23 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 - [Features](#features)
   - [Controls](#controls)
     - [Cards](#cards)
-      - [Action Card](#action)
-      - [Avatar Card](#avatar)
-      - [Parallax Card](#parallax)
+      - [Action](#action)
+      - [Avatar](#avatar)
+      - [Carousel] (TOOO)
+      - [Expandable] (TOOO)
+      - [Parallax] (TOOO)
     - [CheckBox](#checkbox)
-    - [Chips](#chips) 
+    - [Chip](#chip) 
+    - [Banner] (TODO) 
+    - [FAB] (TODO) 
   - [Dialogs](#dialogs)
-    - [Confirm](#confirm)
     - [Alert](#alert)
+    - [Confirm](#confirm)
+    - [InputDialog] (TODO)
+    - [LoadingDialog] (TODO)
+    - [State] (TODO)
+    - [Selection] (TODO)
+    - [Toast] (TODO)
 
 ### Getting Started
 
@@ -26,9 +36,9 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 
 ## Features
 
-## Cards
+### Cards
 
-### Action
+#### Action
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/actioncard.png?raw=true" width="500" height="587">  
 
@@ -79,7 +89,7 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
 </cards:UfoActionCard>
 ```
 
-### Avatar
+#### Avatar
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/avatarcard.png?raw=true" width="554" height="570">  
 
@@ -148,8 +158,33 @@ A collection of **.NET MAUI** Controls & Dialogs. Still under heavy development 
       </cards:UfoAvatarCard.BottomView>
 </cards:UfoAvatarCard>
 ```
+## Controls
 
-## Chips
+#### CheckBox
+
+```Text``` - CheckBox Text 
+
+```IsChecked``` - CheckBox Is Checked 
+
+```FontFamily``` - CheckBox Font Family
+
+```TextColor``` - CheckBox Text Color
+
+```Color``` - CheckBox Checked Color
+
+```CheckedChangedCommand``` - CheckBox Command when IsChecked Changed
+
+#### Sample Code
+
+```xaml
+<selectionControls:UfoCheckBox Color="Red"
+                               Text="Text"
+                               TextColor="Red"
+                               IsChecked="{Binding IsChecked}"
+                               CheckedChangedCommand="{Binding CheckBoxChangedCommand}"/>
+```
+
+#### Chip
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/chips/chip.png?raw=true" width="209" height="67">  
 
