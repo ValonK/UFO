@@ -279,26 +279,6 @@ var config = new ConfirmDialogConfig
 var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description", config: config);
 ```
 
-#### With Font Icon
-
-<img src="https://github.com/ValonK/UFO/blob/main/assets/dialogs/confirm/confirn_header_font_image.png?raw=true"  width="380" height="180">
-
-```c#
-
-var config = new ConfirmDialogConfig
-{
-    IconSource = new FontImageSource { 
-        FontFamily = MaterialDesignIcons, 
-        Color = Color.FromArgb("#7c54d4"),
-        Size = 30,
-        Glyph = "\U000f04d2",
-    },
-    IconHorizontalOptions = LayoutOptions.Start
-};
-
-var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description", config: config);
-```
-
 ### Alert
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/dialogs/alert/alert.png?raw=true" width="380" height="210">
@@ -319,24 +299,3 @@ var config = new AlertDialogConfig
 
 await _ufoDialog.ShowAlertDialogAsync("Title", "Description", config: config);
 ```
-
-#### With Font Icon
-<img src="https://github.com/ValonK/UFO/blob/main/assets/dialogs/alert/alert_header_image.png?raw=true" width="380" height="210">
-
-```c#
-var config = new AlertDialogConfig
-{
-    IconSource = new FontImageSource
-    {
-        FontFamily = MaterialDesignIcons,
-        Color = Color.FromArgb("#7c54d4"),
-        Size = 30,
-        Glyph = "\U000f04d2",
-    },
-    IconHorizontalOptions = LayoutOptions.Start
-};
-
-await _ufoDialog.ShowAlertDialogAsync("Title", "Description", config: config);
-```
-
-
