@@ -18,6 +18,10 @@
 					Text="Cards"
 					x:DataType="viewModels:ControlsViewModel"/>
 
+			<Button Command="{Binding OpenSelectionControlsCommand}"
+					Text="SelectionControls"
+					x:DataType="viewModels:ControlsViewModel"/>
+
 		</VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

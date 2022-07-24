@@ -37,6 +37,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<CardsViewModel>();
 		builder.Services.AddTransient<ChipsPage>();
 		builder.Services.AddTransient<ChipsViewModel>();
+		builder.Services.AddTransient<SelectionControlsPage>();
+		builder.Services.AddTransient<SelectionControlsViewModel>();
 		builder.Services.AddSingleton<IUfoDialog, UfoDialog>();
 		return builder.Build();
 	}

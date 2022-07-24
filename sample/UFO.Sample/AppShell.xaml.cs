@@ -1,5 +1,4 @@
-﻿using UFO.Sample.Pages;
-using UFO.Sample.Pages.Controls;
+﻿using UFO.Sample.Pages.Controls;
 using UFO.Sample.Pages.Controls.Cards;
 using UFO.Sample.Pages.Dialogs;
 
@@ -17,5 +16,6 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(ControlsPage), typeof(ControlsPage));
 		Routing.RegisterRoute(nameof(CardsPage), typeof(CardsPage));
 		Routing.RegisterRoute(nameof(ChipsPage), typeof(ChipsPage));
+		Routing.RegisterRoute(nameof(SelectionControlsPage), typeof(SelectionControlsPage));
 	}
 }
