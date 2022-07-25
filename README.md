@@ -14,7 +14,7 @@
       - [Avatar](#avatar)
       - [Carousel] (TOOO)
       - [Expandable] (TOOO)
-      - [Parallax] (TOOO)
+      - [Parallax](#parallax)
     - [CheckBox](#checkbox)
     - [Chip](#chip) 
     - [Banner] (TODO) 
@@ -38,6 +38,7 @@
 
 ### Cards
 
+---
 #### Action
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/actioncard.png?raw=true" width="500" height="587">  
@@ -88,6 +89,7 @@
     </cards:UfoActionCard.BottomView>
 </cards:UfoActionCard>
 ```
+---
 
 #### Avatar
 
@@ -121,13 +123,13 @@
 
 ```Command``` - The Card's tapped command 
 
-```CloseImageSource``` - The Image Source of the Close Button 
+```CloseButtonImageSource``` - The Image Source of the Close Button 
 
-```CloseBackground``` - The Background of the Close Button 
+```CloseButtonBackground``` - The Background of the Close Button 
 
-```CloseCommand``` - The Close Button tapped command 
+```CloseButtonCommand``` - The Close Button tapped command 
 
-```CloseSize``` - The Size of the Close Button
+```CloseButtonSize``` - The Size of the Close Button
 
 #### Sample Code
 
@@ -137,19 +139,19 @@
                      AvatarBorderColor="{StaticResource Primary}"
                      AvatarSize="80" 
                      AvatarText="JD"
-                     CloseSize="20">
-      <cards:UfoAvatarCard.CloseImageSource>
+                     CloseButtonSize="20">
+      <cards:UfoAvatarCard.CloseButtonImageSource>
           <FontImageSource FontFamily="{StaticResource MaterialFont}"
                            Size="15"
                            Glyph="{x:Static icon:IconFont.Close}"
                            Color="White"/>
-      </cards:UfoAvatarCard.CloseImageSource>
-        <cards:UfoAvatarCard.CloseBackground>
+      </cards:UfoAvatarCard.CloseButtonImageSource>
+        <cards:UfoAvatarCard.CloseButtonBackground>
           <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="{StaticResource Primary}" Offset="0.5" />
             <GradientStop Color="#fa05c9" Offset="0.8" />
           </LinearGradientBrush>
-      </cards:UfoAvatarCard.CloseBackground>
+      </cards:UfoAvatarCard.CloseButtonBackground>
         <cards:UfoAvatarCard.TopView>
            <Image Source="cardimage.png" Aspect="AspectFill"/>
         </cards:UfoAvatarCard.TopView>
@@ -158,7 +160,38 @@
       </cards:UfoAvatarCard.BottomView>
 </cards:UfoAvatarCard>
 ```
+---
+
+#### Parallax
+
+[ParallaxCard Preview](https://github.com/ValonK/Xamarin.Forms.Parallax)
+
+The device's orientation sensor is used to create the parallax effect, checkout [DeviceOrientation Documentation](https://docs.microsoft.com/en-us/dotnet/maui/platform-integration/device/sensors?tabs=windows#orientation)
+
+```ForegroundView``` - The View seen in the Foreground 
+
+```BackgroundView``` - The View seen in the Background 
+
+```IsParallaxActive``` - Activate/deactivate the parallax effect 
+
+```xaml
+<cards:UfoParallaxCard IsParallaxActive="True">
+    <cards:UfoParallaxCard.ForegroundView>
+        <Image Source="img_fg.png" 
+               Aspect="AspectFill"/>
+    </cards:UfoParallaxCard.ForegroundView>
+    <cards:UfoParallaxCard.BackgroundView>
+        <Image Source="img_bg.jpeg"
+               Aspect="Fill"
+               Margin="-200, 0, -200, 0"/>
+    </cards:UfoParallaxCard.BackgroundView>
+</cards:UfoParallaxCard>
+```
+---
+
 ## Controls
+
+---
 
 #### CheckBox
 
@@ -184,6 +217,8 @@
                                CheckedChangedCommand="{Binding CheckBoxChangedCommand}"/>
 ```
 
+---
+
 #### Chip
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/chips/chip.png?raw=true" width="209" height="67">  
@@ -194,9 +229,9 @@
 
 ```IconImageSource``` - Image Source of the Chip's Icon 
 
-```CloseIconImageSource``` - Image Source of the Chip's Close Icon 
+```CloseButtonIconImageSource``` - Image Source of the Chip's Close Icon 
 
-```CloseCommand``` - Chips's Close Command
+```CloseButtonCommand``` - Chips's Close Command
 
 ```Command``` - Chips's Command
 
@@ -218,14 +253,16 @@
                              Glyph="{x:Static icon:IconFont.Ufo}"
                              Color="White"/>
          </controls:UfoChip.IconImageSource>
-         <controls:UfoChip.CloseIconImageSource>
+         <controls:UfoChip.CloseButtonIconImageSource>
             <FontImageSource FontFamily="{StaticResource MaterialFont}"
                              Glyph="{x:Static icon:IconFont.Close}"
                              Color="White"
                              Size="16"/>
-          </controls:UfoChip.CloseIconImageSource>
+          </controls:UfoChip.CloseButtonIconImageSource>
 </controls:UfoChip>
 ```
+
+---
 
 ## Dialogs
 
@@ -242,6 +279,7 @@ public ViewModel(IUfoDialog ufoDialog)
     _ufoDialog = ufoDialog;
 }
 ```
+---
 
 ### Confirm
 
@@ -279,6 +317,8 @@ var config = new ConfirmDialogConfig
 var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description", config: config);
 ```
 
+---
+
 ### Alert
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/dialogs/alert/alert.png?raw=true" width="380" height="210">
@@ -299,3 +339,4 @@ var config = new AlertDialogConfig
 
 await _ufoDialog.ShowAlertDialogAsync("Title", "Description", config: config);
 ```
+---
