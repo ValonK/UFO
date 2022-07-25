@@ -22,9 +22,10 @@ public class UfoActionCardTest
             BorderColor = Colors.Yellow,
             TopView = new Image(),
             BottomView = new Label(),
-            CloseImageSource = new FileImageSource(),
-            CloseBackground = Colors.Beige,
-            CloseSize = 30.0
+            CloseButtonVisible = true,
+            CloseButtonImageSource = new FileImageSource(),
+            CloseButtonBackground = Colors.Beige,
+            CloseButtonSize = 30.0
         };
 
         Assert.True(ufoActionCard.HasActionButton);
@@ -37,9 +38,10 @@ public class UfoActionCardTest
         Assert.Equal(Colors.Yellow, ufoActionCard.BorderColor);
         Assert.True(ufoActionCard.TopView is Image);
         Assert.True(ufoActionCard.BottomView is Label);
-        Assert.True(ufoActionCard.CloseImageSource is FileImageSource);
-        Assert.Equal(Colors.Beige, ufoActionCard.CloseBackground);
-        Assert.Equal(30, ufoActionCard.CloseSize);
+        Assert.True(ufoActionCard.CloseButtonVisible);
+        Assert.True(ufoActionCard.CloseButtonImageSource is FileImageSource);
+        Assert.Equal(Colors.Beige, ufoActionCard.CloseButtonBackground);
+        Assert.Equal(30, ufoActionCard.CloseButtonSize);
     }
     
     [Fact]
@@ -97,6 +99,13 @@ public class UfoActionCardTest
     public void CloseSizeDefaultValue()
     {
         var ufoActionCard = new UfoActionCard();
-        Assert.Equal(20.0, ufoActionCard.CloseSize);
+        Assert.Equal(20.0, ufoActionCard.CloseButtonSize);
     }
+
+	[Fact]
+	public void CloseVisibleDefaultValue()
+	{
+		var ufoActionCard = new UfoActionCard();
+		Assert.False(ufoActionCard.CloseButtonVisible);
+	}
 }
