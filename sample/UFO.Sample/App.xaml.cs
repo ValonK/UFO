@@ -1,6 +1,4 @@
-﻿using UFO.Sample.Pages;
-
-namespace UFO.Sample;
+﻿namespace UFO.Sample;
 
 public partial class App : Application
 {

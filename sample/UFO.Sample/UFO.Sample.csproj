@@ -50,11 +50,23 @@
 
 	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\drawable-hdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-hdpi\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-hdpi\img_fg.png" />
 	  <None Remove="Platforms\Android\Resources\drawable-mdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-mdpi\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-mdpi\img_fg.png" />
 	  <None Remove="Platforms\Android\Resources\drawable-xhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xhdpi\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xhdpi\img_fg.png" />
 	  <None Remove="Platforms\Android\Resources\drawable-xxhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxhdpi\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxhdpi\img_fg.png" />
 	  <None Remove="Platforms\Android\Resources\drawable-xxxhdpi\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxxhdpi\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable-xxxhdpi\img_fg.png" />
 	  <None Remove="Platforms\Android\Resources\drawable\headerimage.png" />
+	  <None Remove="Platforms\Android\Resources\drawable\img_bg.png" />
+	  <None Remove="Platforms\Android\Resources\drawable\img_fg.png" />
 	  <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
 	  <None Remove="Resources\Images\cardimage.png" />
 	  <None Remove="Resources\Images\headerimage.png" />
