@@ -148,14 +148,14 @@ public class ConfirmDialogTests : DialogTest
     {
         var config = new ConfirmDialogConfig
         {
-            ShowDontAskAgain = dontAskAgainEnabled,
-            DontAskAgainFontColor = Colors.RosyBrown,
-            DontAskAgainText = nameof(ConfirmDialog)
+            ShowCheckBox = dontAskAgainEnabled,
+            CheckBoxTextColor = Colors.RosyBrown,
+            CheckBoxText = nameof(ConfirmDialog)
         };
 
         var confirmDialog = new ConfirmDialog(config);
 
-        var checkBox = GetDialogControl<UfoCheckBox>(confirmDialog, "DontAskAgainCheckBox");
+        var checkBox = GetDialogControl<UfoCheckBox>(confirmDialog, "CheckBox");
         Assert.Equal(dontAskAgainEnabled, checkBox.IsVisible);
 
         if (dontAskAgainEnabled)

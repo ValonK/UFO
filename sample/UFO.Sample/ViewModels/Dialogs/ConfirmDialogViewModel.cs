@@ -26,7 +26,7 @@ public partial class ConfirmDialogViewModel : BaseViewModel
 	{
 		var confirmDialogConfig = new ConfirmDialogConfig
 		{
-			ShowDontAskAgain = true
+			ShowCheckBox = true
 		};
 
 		var result = await _ufoDialog.ShowConfirmDialogAsync("Title", LoremImpsum, config: confirmDialogConfig);

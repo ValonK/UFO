@@ -21,9 +21,9 @@ public sealed class ConfirmDialogConfig : DialogConfig
         BorderColor = UfoDeclineButtonBorderColor
     };
 
-	public Color DontAskAgainFontColor { get; set; } = Color.FromArgb("#808692");
+	public Color CheckBoxTextColor { get; set; } = Color.FromArgb("#808692");
 
-	public bool ShowDontAskAgain { get; set; } = false;
+	public bool ShowCheckBox { get; set; } = false;
 
-	public string DontAskAgainText { get; set; } = "Dont ask again";
+	public string CheckBoxText { get; set; } = "Dont ask again";
 }

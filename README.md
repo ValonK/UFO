@@ -296,8 +296,8 @@ var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description");
 <img src="https://github.com/ValonK/UFO/blob/main/assets/dialogs/confirm/confirm_checkbox.png?raw=true"  width="380" height="180">
 
 ```c#
-var confirmDialogConfig = new ConfirmDialogConfig { ShowDontAskAgain = true };
-var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description", config: confirmDialogConfig);
+var config = new ConfirmDialogConfig { ShowCheckBox = true };
+var result = await _ufoDialog.ShowConfirmDialogAsync("Title", "Description", config: config);
 ```
 
 

@@ -67,7 +67,7 @@ public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialo
 		DeclineButton.Clicked += (sender, args) =>
 		{
 			OnClosed(null, false);
-			TaskCompletionSource.TrySetResult(new(DontAskAgainCheckBox.IsChecked, false));
+			TaskCompletionSource.TrySetResult(new(CheckBox.IsChecked, false));
 		};
 
 		ConfirmButton.Background = confirmDialogConfig.ConfirmButtonConfig.Background;
@@ -79,17 +79,17 @@ public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialo
 		ConfirmButton.Clicked += (sender, args) =>
 		{
 			OnClosed(null, false);
-			TaskCompletionSource.TrySetResult(new(DontAskAgainCheckBox.IsChecked, true));
+			TaskCompletionSource.TrySetResult(new(CheckBox.IsChecked, true));
 		};
 
-		if (confirmDialogConfig.ShowDontAskAgain)
+		if (confirmDialogConfig.ShowCheckBox)
 		{
-			DontAskAgainCheckBox.Text = confirmDialogConfig.DontAskAgainText;
-			DontAskAgainCheckBox.TextColor = confirmDialogConfig.DontAskAgainFontColor;
+			CheckBox.Text = confirmDialogConfig.CheckBoxText;
+			CheckBox.TextColor = confirmDialogConfig.CheckBoxTextColor;
 		}
 		else
 		{
-			DontAskAgainCheckBox.IsVisible = false;
+			CheckBox.IsVisible = false;
 		}
 	}
 }
