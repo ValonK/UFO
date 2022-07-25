@@ -1,7 +1,7 @@
 
 # UFO 🛸
 
-**.NET MAUI** Controls & Dialogs for Windows, iOS, and Android. Still being developed **not** yet released
+**.NET MAUI** Controls & Dialogs for Windows, iOS, and Android. Still being developed **not** released yet.
 
 
 ## Contents
