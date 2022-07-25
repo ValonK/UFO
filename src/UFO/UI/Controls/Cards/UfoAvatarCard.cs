@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using System.ComponentModel;
+using UFO.UI.Builders;
 
 namespace UFO.UI.Controls.Cards;
 
@@ -13,7 +14,9 @@ public class UfoAvatarCard : UfoCard
 	public static readonly BindableProperty AvatarTextColorProperty = BindableProperty.Create(nameof(AvatarTextColor), typeof(Color), typeof(UfoAvatarCard), defaultValue: Colors.Black);
 	public static readonly BindableProperty AvatarImageSourceProperty = BindableProperty.Create(nameof(AvatarImageSource), typeof(ImageSource), typeof(UfoAvatarCard));
 	public static readonly BindableProperty AvatarPaddingProperty = BindableProperty.Create(nameof(AvatarPadding), typeof(Thickness), typeof(UfoAvatarCard));	
-
+	public static readonly BindableProperty TopViewProperty = BindableProperty.Create(nameof(TopView), typeof(View), typeof(UfoAvatarCard));
+	public static readonly BindableProperty BottomViewProperty = BindableProperty.Create(nameof(BottomView), typeof(View), typeof(UfoAvatarCard));
+	
 	public UfoAvatarCard()
 	{
 		Content = new AvatarCardBuilder(this).Build();
@@ -66,27 +69,29 @@ public class UfoAvatarCard : UfoCard
 		get => (Color)GetValue(AvatarTextColorProperty);
 		set => SetValue(AvatarTextColorProperty, value);
 	}
+
+	public View TopView
+	{
+		get => (View)GetValue(TopViewProperty);
+		set => SetValue(TopViewProperty, value);
+	}
+
+	public View BottomView
+	{
+		get => (View)GetValue(BottomViewProperty);
+		set => SetValue(BottomViewProperty, value);
+	}
 }
 
-internal sealed class AvatarCardBuilder : LayoutBuilder
+internal sealed class AvatarCardBuilder : CardLayoutBuilder
 {
 	private readonly UfoAvatarCard _ufoAvatarCard;
-	private readonly Frame _cardFrameContainer = new() { Padding = 0 };
-	private readonly Grid _controlGridContainer = new();
 	private readonly ContentView _bottomView = new() { Padding = 0 };
 	private readonly ContentView _topView = new() { Padding = 0 };
 
 	private readonly AvatarView _avatarView = new()
 	{
 		VerticalOptions = LayoutOptions.End,
-	};
-
-	private readonly Button _closeButton = new()
-	{
-		Padding = 0,
-		VerticalOptions = LayoutOptions.Start,
-		HorizontalOptions = LayoutOptions.End,
-		Margin = new Thickness(0, 5, 5, 0),
 	};
 
 	public AvatarCardBuilder(UfoAvatarCard ufoAvatarCard)
@@ -100,24 +105,24 @@ internal sealed class AvatarCardBuilder : LayoutBuilder
 
 	internal override View Build()
 	{
-		return _cardFrameContainer;
+		return CardFrameContainer;
 	}
 
 	protected override void Construct()
 	{
-		_controlGridContainer.RowDefinitions.Add(new(GridLength.Star));
-		_controlGridContainer.RowDefinitions.Add(new(GridLength.Star));
-		_controlGridContainer.Children.Add(_bottomView);
-		_controlGridContainer.Children.Add(_topView);
-		_controlGridContainer.Children.Add(_avatarView);
-		_controlGridContainer.Children.Add(_closeButton);
+		ControlGridContainer.RowDefinitions.Add(new(GridLength.Star));
+		ControlGridContainer.RowDefinitions.Add(new(GridLength.Star));
+		ControlGridContainer.Children.Add(_bottomView);
+		ControlGridContainer.Children.Add(_topView);
+		ControlGridContainer.Children.Add(_avatarView);
+		ControlGridContainer.Children.Add(CloseButton);
 
 		Grid.SetRow(_bottomView, 1);
 		Grid.SetRow(_topView, 0);
-		Grid.SetRow(_closeButton, 0);
+		Grid.SetRow(CloseButton, 0);
 		Grid.SetRow(_avatarView, 0);
 
-		_cardFrameContainer.Content = _controlGridContainer;
+		CardFrameContainer.Content = ControlGridContainer;
 	}
 
 	private void UfoAvatarCard_Unloaded(object sender, EventArgs e)
@@ -128,6 +133,8 @@ internal sealed class AvatarCardBuilder : LayoutBuilder
 
 	private void UfoAvatarCard_PropertyChanged(object sender, PropertyChangedEventArgs e)
 	{
+		SetCardFrameProperties(e.PropertyName, _ufoAvatarCard);
+
 		if (e.PropertyName == nameof(_ufoAvatarCard.AvatarBackgroundColor)) _avatarView.BackgroundColor = _ufoAvatarCard.BackgroundColor;
 		if (e.PropertyName == nameof(_ufoAvatarCard.AvatarBorderColor)) _avatarView.BorderColor = _ufoAvatarCard.AvatarBorderColor;
 		if (e.PropertyName == nameof(_ufoAvatarCard.AvatarBorderWidth)) _avatarView.BorderWidth = _ufoAvatarCard.AvatarBorderWidth;
@@ -149,27 +156,6 @@ internal sealed class AvatarCardBuilder : LayoutBuilder
 		if (e.PropertyName == nameof(_ufoAvatarCard.TopView)) _topView.Content = _ufoAvatarCard.TopView;
 		if (e.PropertyName == nameof(_ufoAvatarCard.BottomView)) _bottomView.Content = _ufoAvatarCard.BottomView;
 
-		if (e.PropertyName == nameof(_ufoAvatarCard.CornerRadius)) _cardFrameContainer.CornerRadius = _ufoAvatarCard.CornerRadius;
-		if (e.PropertyName == nameof(_ufoAvatarCard.BorderColor)) _cardFrameContainer.BorderColor = _ufoAvatarCard.BorderColor;
-		if (e.PropertyName == nameof(_ufoAvatarCard.Command))
-		{
-			var tapGestureRecognizer = new TapGestureRecognizer
-			{
-				Command = _ufoAvatarCard.Command
-			};
-			_cardFrameContainer.GestureRecognizers.Clear();
-			_cardFrameContainer.GestureRecognizers.Add(tapGestureRecognizer);
-		}
-
-		if (e.PropertyName == nameof(_ufoAvatarCard.CloseBackground)) _closeButton.Background = _ufoAvatarCard.CloseBackground;
-		if (e.PropertyName == nameof(_ufoAvatarCard.CloseImageSource)) _closeButton.ImageSource = _ufoAvatarCard.CloseImageSource;
-		if (e.PropertyName == nameof(_ufoAvatarCard.CloseCommand)) _closeButton.Command = _ufoAvatarCard.CloseCommand;
-		if (e.PropertyName == nameof(_ufoAvatarCard.CloseSize))
-		{
-			var size = _ufoAvatarCard.CloseSize;
-			_closeButton.HeightRequest = size;
-			_closeButton.WidthRequest = size;
-			_closeButton.CornerRadius = (int)(size / 2);
-		}
+		SetCloseButtonProperties(e.PropertyName, _ufoAvatarCard);
 	}
 }

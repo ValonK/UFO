@@ -7,15 +7,14 @@ public abstract class UfoCard : ContentView
 {
 	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(UfoCard), defaultValue: UfoSizes.DefaultCornerRadios);
 	public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(UfoCard), defaultValue: Colors.LightGray);
-	public static readonly BindableProperty TopViewProperty = BindableProperty.Create(nameof(TopView), typeof(View), typeof(UfoCard));
-	public static readonly BindableProperty BottomViewProperty = BindableProperty.Create(nameof(BottomView), typeof(View), typeof(UfoCard));
 	public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(UfoCard), defaultValue: 2.0);
 	public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(UfoCard));
-	public static readonly BindableProperty CloseImageSourceProperty = BindableProperty.Create(nameof(CloseImageSource), typeof(ImageSource), typeof(UfoAvatarCard));
-	public static readonly BindableProperty CloseCommandProperty = BindableProperty.Create(nameof(CloseCommand), typeof(ICommand), typeof(UfoAvatarCard));
-	public static readonly BindableProperty CloseBackgroundProperty = BindableProperty.Create(nameof(CloseBackground), typeof(Brush), typeof(UfoAvatarCard));
-	public static readonly BindableProperty CloseSizeProperty = BindableProperty.Create(nameof(CloseSize), typeof(double), typeof(UfoAvatarCard), defaultValue: 20.0);
-	
+	public static readonly BindableProperty CloseButtonVisibleProperty = BindableProperty.Create(nameof(CloseButtonVisible), typeof(bool), typeof(UfoCard));
+	public static readonly BindableProperty CloseButtonImageSourceProperty = BindableProperty.Create(nameof(CloseButtonImageSource), typeof(ImageSource), typeof(UfoCard));
+	public static readonly BindableProperty CloseCloseButtonCommandProperty = BindableProperty.Create(nameof(CloseButtonCommand), typeof(ICommand), typeof(UfoCard));
+	public static readonly BindableProperty CloseButtonBackgroundProperty = BindableProperty.Create(nameof(CloseButtonBackground), typeof(Brush), typeof(UfoCard));
+	public static readonly BindableProperty CloseButtonSizeProperty = BindableProperty.Create(nameof(CloseButtonSize), typeof(double), typeof(UfoCard), defaultValue: 20.0);
+
 	public float CornerRadius
 	{
 		get => (float)GetValue(CornerRadiusProperty);
@@ -34,45 +33,39 @@ public abstract class UfoCard : ContentView
 		set => SetValue(BorderColorProperty, value);
 	}
 
-	public View TopView
-	{
-		get => (View)GetValue(TopViewProperty);
-		set => SetValue(TopViewProperty, value);
-	}
-
-	public View BottomView
-	{
-		get => (View)GetValue(BottomViewProperty);
-		set => SetValue(BottomViewProperty, value);
-	}
-
 	public ICommand Command
 	{
 		get => (ICommand)GetValue(CommandProperty);
 		set => SetValue(CommandProperty, value);
 	}
 
-	public ImageSource CloseImageSource
+	public ImageSource CloseButtonImageSource
 	{
-		get => (ImageSource)GetValue(CloseImageSourceProperty);
-		set => SetValue(CloseImageSourceProperty, value);
+		get => (ImageSource)GetValue(CloseButtonImageSourceProperty);
+		set => SetValue(CloseButtonImageSourceProperty, value);
 	}
 
-	public Brush CloseBackground
+	public Brush CloseButtonBackground
 	{
-		get => (Brush)GetValue(CloseBackgroundProperty);
-		set => SetValue(CloseBackgroundProperty, value);
+		get => (Brush)GetValue(CloseButtonBackgroundProperty);
+		set => SetValue(CloseButtonBackgroundProperty, value);
 	}
 
-	public ICommand CloseCommand
+	public ICommand CloseButtonCommand
 	{
-		get => (ICommand)GetValue(CloseCommandProperty);
-		set => SetValue(CloseCommandProperty, value);
+		get => (ICommand)GetValue(CloseCloseButtonCommandProperty);
+		set => SetValue(CloseCloseButtonCommandProperty, value);
 	}
 
-	public double CloseSize
+	public double CloseButtonSize
 	{
-		get => (double)GetValue(CloseSizeProperty);
-		set => SetValue(CloseSizeProperty, value);
+		get => (double)GetValue(CloseButtonSizeProperty);
+		set => SetValue(CloseButtonSizeProperty, value);
+	}
+
+	public bool CloseButtonVisible
+	{
+		get => (bool)GetValue(CloseButtonVisibleProperty);
+		set => SetValue(CloseButtonVisibleProperty, value);
 	}
 }
