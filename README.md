@@ -12,13 +12,16 @@
     - [Cards](#cards)
       - [Action](#action)
       - [Avatar](#avatar)
-      - [Carousel] (TOOO)
-      - [Expandable] (TOOO)
+      - [Carousel] (TODO)
+      - [Credit] (TODO)
+      - [Expandable] (TODO)
       - [Parallax](#parallax)
+    - [Banner] (TODO) 
     - [CheckBox](#checkbox)
     - [Chip](#chip) 
-    - [Banner] (TODO) 
     - [FAB] (TODO) 
+    - [ImageCropper] (TODO)
+    - [MarkdownLabel] (TODO)
   - [Dialogs](#dialogs)
     - [Alert](#alert)
     - [Confirm](#confirm)
@@ -27,6 +30,7 @@
     - [State] (TODO)
     - [Selection] (TODO)
     - [Toast] (TODO)
+    - [Tutorial] (TODO)
 
 ### Getting Started
 
