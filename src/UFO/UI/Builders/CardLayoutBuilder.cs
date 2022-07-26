@@ -11,7 +11,7 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
 
     protected CardLayoutBuilder()
     {
-        _cardFrameContainer = new() { Padding = 0, CornerRadius = UfoSizes.DefaultCornerRadios };
+        _cardFrameContainer = new() { Padding = 0, CornerRadius = UfoSizes.DefaultCornerRadius };
         _controlGridContainer = new();
         _closeButton = new()
         {

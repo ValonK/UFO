@@ -5,7 +5,7 @@ namespace UFO.UI.Controls.Cards;
 
 public abstract class UfoCard : ContentView
 {
-	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(UfoCard), defaultValue: UfoSizes.DefaultCornerRadios);
+	public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(float), typeof(UfoCard), defaultValue: UfoSizes.DefaultCornerRadius);
 	public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(UfoCard), defaultValue: Colors.LightGray);
 	public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(UfoCard), defaultValue: 2.0);
 	public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(UfoCard));

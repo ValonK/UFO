@@ -10,5 +10,5 @@ internal static class UfoColors
 internal static class UfoSizes
 {
     public const double DefaultButtonBorderWidth = 1;
-    public const float DefaultCornerRadios = 15f;
+    public const float DefaultCornerRadius = 15f;
 }
