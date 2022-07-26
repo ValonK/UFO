@@ -37,7 +37,7 @@ public partial class ConfirmDialog : Dialog, IAwaitableResultDialog<ConfirmDialo
 
 	private void ConfigureDialog(ConfirmDialogConfig confirmDialogConfig)
 	{
-		DialogContainer.CornerRadius = 15;
+		DialogContainer.CornerRadius = confirmDialogConfig.CornerRadius;
 		DialogContainer.BackgroundColor = confirmDialogConfig.BackgroundColor;
 
 		if (confirmDialogConfig.IconSource != null)

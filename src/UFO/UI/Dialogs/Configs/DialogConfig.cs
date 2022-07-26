@@ -1,4 +1,5 @@
-﻿using static UFO.Utilities.UfoColors;
+﻿using UFO.Utilities;
+using static UFO.Utilities.UfoColors;
 
 namespace UFO.UI.Dialogs.Configs;
 
@@ -11,6 +12,8 @@ public abstract class DialogConfig
     public string Title { get; set; }
 
     public Color BackgroundColor { get; set; } = Colors.White;
+
+    public float CornerRadius { get; set; } = UfoSizes.DefaultCornerRadius;
 
     public ImageSource IconSource { get; set; }
 

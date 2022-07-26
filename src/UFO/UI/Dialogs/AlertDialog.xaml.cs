@@ -34,7 +34,7 @@ public partial class AlertDialog : Dialog, IAwaitableDialog
 
 	private void ConfigureDialog(AlertDialogConfig alertDialogConfig)
 	{
-		DialogContainer.CornerRadius = 15;
+		DialogContainer.CornerRadius = alertDialogConfig.CornerRadius;
 		DialogContainer.BackgroundColor = alertDialogConfig.BackgroundColor;
 
 		if (alertDialogConfig.IconSource != null)
