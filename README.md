@@ -198,7 +198,7 @@ The device's orientation sensor is used to create the parallax effect, checkout 
 
 #### Settings
 
-<img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/settings.png?raw=true" width="744" height="196">  
+<img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/settings.png?raw=true" width="744" height="169">  
 
 #### Properties
 
