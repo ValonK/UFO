@@ -18,7 +18,7 @@ public class UfoActionCard : UfoCard
 	
 	public UfoActionCard()
 	{
-		Content = new ActionCardBuilder(this).Build();
+		Content = new ActionCardLayoutBuilder(this).Build();
 	}
 
 	public bool HasActionButton
@@ -70,14 +70,14 @@ public class UfoActionCard : UfoCard
 	}
 }
 
-internal sealed class ActionCardBuilder : CardLayoutBuilder
+internal sealed class ActionCardLayoutBuilder : CardLayoutBuilder
 {
 	private readonly UfoActionCard _actionCard;
 	private readonly ContentView _bottomView = new() { Padding = 0 };
 	private readonly ContentView _topView = new() { Padding = 0 };
 	private readonly Button _actionButton = new() { Padding = 0, VerticalOptions = LayoutOptions.End, HorizontalOptions = LayoutOptions.End };
 
-	public ActionCardBuilder(UfoActionCard ufoCard)
+	public ActionCardLayoutBuilder(UfoActionCard ufoCard)
 	{
 		_actionCard = ufoCard;
 		_actionCard.Unloaded += UfoActionCard_Unloaded;

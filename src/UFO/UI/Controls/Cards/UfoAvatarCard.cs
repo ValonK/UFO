@@ -19,7 +19,7 @@ public class UfoAvatarCard : UfoCard
 	
 	public UfoAvatarCard()
 	{
-		Content = new AvatarCardBuilder(this).Build();
+		Content = new AvatarCardLayoutBuilder(this).Build();
 	}
 
 	public Color AvatarBackgroundColor
@@ -83,7 +83,7 @@ public class UfoAvatarCard : UfoCard
 	}
 }
 
-internal sealed class AvatarCardBuilder : CardLayoutBuilder
+internal sealed class AvatarCardLayoutBuilder : CardLayoutBuilder
 {
 	private readonly UfoAvatarCard _ufoAvatarCard;
 	private readonly ContentView _bottomView = new() { Padding = 0 };
@@ -94,7 +94,7 @@ internal sealed class AvatarCardBuilder : CardLayoutBuilder
 		VerticalOptions = LayoutOptions.End,
 	};
 
-	public AvatarCardBuilder(UfoAvatarCard ufoAvatarCard)
+	public AvatarCardLayoutBuilder(UfoAvatarCard ufoAvatarCard)
 	{
 		_ufoAvatarCard = ufoAvatarCard;
 		_ufoAvatarCard.PropertyChanged += UfoAvatarCard_PropertyChanged;

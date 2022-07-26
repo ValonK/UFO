@@ -12,7 +12,7 @@ public class UfoParallaxCard : UfoCard
 
 	public UfoParallaxCard()
 	{
-		Content = new ParallaxCardBuilder(this).Build();
+		Content = new ParallaxCardLayoutBuilder(this).Build();
 	}
 	
 	public View ForegroundView
@@ -34,13 +34,13 @@ public class UfoParallaxCard : UfoCard
 	}
 }
 
-internal sealed class ParallaxCardBuilder : CardLayoutBuilder
+internal sealed class ParallaxCardLayoutBuilder : CardLayoutBuilder
 {
 	private readonly UfoParallaxCard _parallaxCard;
 	private readonly ContentView _foregroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.End};
 	private readonly ContentView _backgroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.Fill};
 	
-	public ParallaxCardBuilder(UfoParallaxCard parallaxCard)
+	public ParallaxCardLayoutBuilder(UfoParallaxCard parallaxCard)
 	{
 		_parallaxCard = parallaxCard;
 		_parallaxCard.PropertyChanged += ParallaxCard_PropertyChanged;
