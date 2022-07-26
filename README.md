@@ -16,6 +16,7 @@
       - [Credit] (TODO)
       - [Expandable] (TODO)
       - [Parallax](#parallax)
+      - [Settings](#settings)
     - [Banner] (TODO) 
     - [CheckBox](#checkbox)
     - [Chip](#chip) 
@@ -172,6 +173,8 @@
 
 The device's orientation sensor is used to create the parallax effect, checkout [DeviceOrientation Documentation](https://docs.microsoft.com/en-us/dotnet/maui/platform-integration/device/sensors?tabs=windows#orientation)
 
+#### Properties
+
 ```ForegroundView``` - The View seen in the Foreground 
 
 ```BackgroundView``` - The View seen in the Background 
@@ -193,11 +196,72 @@ The device's orientation sensor is used to create the parallax effect, checkout 
 ```
 ---
 
+#### Settings
+
+<img src="https://github.com/ValonK/UFO/blob/main/assets/controls/cards/settings.png?raw=true" width="744" height="196">  
+
+#### Properties
+
+```IconImageSource``` - The Card icon's source  
+
+```IconVerticalOptions``` - Vertical Options for the Card Icon 
+
+```Title``` - Title Text
+
+```TitleFontFamily``` - Title Font Family 
+
+```TitleTextColor``` - Title Text Color
+
+```TitleFontFamily``` - Title Font Attributes
+
+```TitleFontAttributes``` - Title Font Attributes
+
+```Description``` - Description Text 
+
+```DescriptionFontFamily``` - Description Font Family 
+
+```DescriptionTextColor``` - Description Text Color 
+
+```DescriptionFontAttributes``` - Description Font Attributes
+
+```SettingsView``` - The view where your check boxes and switches are located  
+
+
+```xaml
+<cards:UfoSettingsCard Title="Setting"
+                       TitleFontAttributes="Bold"
+                       TitleFontSize="14"
+                       TitleTextColor="White"
+                       Margin="5,0,5,0"		
+                       DescriptionFontSize="10"
+                       IconVerticalOptions="Center"
+                       DescriptionTextColor="White"
+                       Description="Lorem ipsum dolor sit amet"
+                       Background="{StaticResource Gradient}">
+      <cards:UfoSettingsCard.IconImageSource>
+          <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                           Glyph="{x:Static icon:IconFont.Tools}"
+                           Color="White"
+                           Size="20"/>
+      </cards:UfoSettingsCard.IconImageSource>
+      <cards:UfoSettingsCard.SettingsView>
+          <Switch VerticalOptions="Center"
+                  HorizontalOptions="Center"
+                  ThumbColor="White"
+                  OnColor="GreenYellow"/>
+      </cards:UfoSettingsCard.SettingsView>
+</cards:UfoSettingsCard>
+```
+
+---
+
 ## Controls
 
 ---
 
 #### CheckBox
+
+#### Properties
 
 ```Text``` - CheckBox Text 
 
@@ -226,6 +290,8 @@ The device's orientation sensor is used to create the parallax effect, checkout 
 #### Chip
 
 <img src="https://github.com/ValonK/UFO/blob/main/assets/controls/chips/chip.png?raw=true" width="209" height="67">  
+
+#### Properties
 
 ```ChipBorderColor``` - Color of the Chip's Border 
 
