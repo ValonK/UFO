@@ -17,5 +17,9 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(CardsPage), typeof(CardsPage));
 		Routing.RegisterRoute(nameof(ChipsPage), typeof(ChipsPage));
 		Routing.RegisterRoute(nameof(SelectionControlsPage), typeof(SelectionControlsPage));
+		Routing.RegisterRoute(nameof(ActionCardPage), typeof(ActionCardPage));
+		Routing.RegisterRoute(nameof(AvatarCardPage), typeof(AvatarCardPage));
+		Routing.RegisterRoute(nameof(ParallaxCardPage), typeof(ParallaxCardPage));
+		Routing.RegisterRoute(nameof(SettingsCardPage), typeof(SettingsCardPage));
 	}
 }

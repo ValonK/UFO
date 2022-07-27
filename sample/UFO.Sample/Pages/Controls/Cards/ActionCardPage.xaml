@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:pages="clr-namespace:UFO.Sample.Pages"
+		  xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
+		  xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls.Cards"
+		  xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
+		  xmlns:icon="clr-namespace:UFO.Sample.Helpers"
+          x:Class="UFO.Sample.Pages.Controls.Cards.ActionCardPage"
+          Title="Actions Card">
+
+	<ScrollView>
+		<VerticalStackLayout x:DataType="viewModels:ActionsCardViewModel" 
+							 Spacing="20" 
+							 Margin="50,30,50,50">
+			<cards:UfoActionCard ActionButtonSize="50"
+								 IsActionButtonVisible="{Binding IsActionButtonVisible}"
+								 CloseButtonVisible="{Binding IsCloseButtonVisible}"
+								 Command="{Binding CardCommand}"
+								 CloseButtonCommand="{Binding CardCloseCommand}"
+								 ActionButtonCommand="{Binding IconCommand}"
+								 ActionButtonLayoutOptions="{Binding ActionButtonLayoutOption}">
+				<cards:UfoActionCard.CloseButtonImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+								     Glyph="{x:Static icon:IconFont.Close}"
+									 Color="White"
+									 Size="15"/>
+				</cards:UfoActionCard.CloseButtonImageSource>
+				<cards:UfoActionCard.ActionButtonBackground>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
+						<GradientStop Color="#fa05c9" Offset="0.8" />
+					</LinearGradientBrush>
+				</cards:UfoActionCard.ActionButtonBackground>
+				<cards:UfoActionCard.ActionButtonImageSource>
+					<FontImageSource FontFamily="{StaticResource MaterialFont}"
+								     Glyph="{x:Static icon:IconFont.Ufo}"
+									 Color="White"
+									 Size="30"/>
+				</cards:UfoActionCard.ActionButtonImageSource>
+				<cards:UfoActionCard.TopView>
+					<Image Source="cardimage.png" Aspect="AspectFill"/>
+				</cards:UfoActionCard.TopView>
+				<cards:UfoActionCard.BottomView>
+					<Grid RowDefinitions="Auto, Auto"
+						  Padding="15"
+						  RowSpacing="20">
+						<VerticalStackLayout Grid.Row="0"
+										 Margin="0,10,0,0"
+										 Spacing="10">
+							<Label Text="Action Card"
+							   FontAttributes="Bold"
+							   TextColor="Black"
+							   FontSize="20"
+							   VerticalTextAlignment="Center"/>
+
+							<Label Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam nonumy eirmod  magna aliquyam erat sed diam nonumy tempor invidunt"
+							   TextColor="Black"
+							   VerticalTextAlignment="Center"/>
+						</VerticalStackLayout>
+
+						<HorizontalStackLayout Grid.Row="1"
+										   Spacing="10">
+							<controls:UfoChip ChipBackground="{StaticResource Primary}"
+										  Text="Chip 1"
+									      TextColor="White">
+								<controls:UfoChip.IconImageSource>
+									<FontImageSource FontFamily="{StaticResource MaterialFont}"
+												 Glyph="{x:Static icon:IconFont.Ufo}"
+												 Color="White"
+												 Size="20"/>
+								</controls:UfoChip.IconImageSource>
+							</controls:UfoChip>
+
+							<controls:UfoChip ChipBackground="{StaticResource Primary}"
+										  Text="Chip 2"
+										  TextColor="White">
+								<controls:UfoChip.IconImageSource>
+									<FontImageSource FontFamily="{StaticResource MaterialFont}"
+												 Glyph="{x:Static icon:IconFont.Ufo}"
+												 Color="White"
+												 Size="20"/>
+								</controls:UfoChip.IconImageSource>
+							</controls:UfoChip>
+						</HorizontalStackLayout>
+					</Grid>
+				</cards:UfoActionCard.BottomView>
+			</cards:UfoActionCard>
+
+			<Label Text="Action Button Position"
+				   HorizontalTextAlignment="Center"
+				   TextColor="{StaticResource Primary}"/>
+			<HorizontalStackLayout Spacing="10"
+							   HorizontalOptions="Center">
+				<Button Text="Left"
+						HorizontalOptions="Center"
+						FontAttributes="Bold"
+						Command="{Binding IconButtonPositionCommand}"
+						CommandParameter="Start"
+						TextColor="White"/>
+
+				<Button Text="Center"
+						HorizontalOptions="Center"
+						FontAttributes="Bold"
+						Command="{Binding IconButtonPositionCommand}"
+						CommandParameter="Center"
+						TextColor="White"/>
+
+				<Button Text="Right"
+						HorizontalOptions="Center"
+						FontAttributes="Bold"
+						Command="{Binding IconButtonPositionCommand}"
+						CommandParameter="End"
+						TextColor="White"/>
+			</HorizontalStackLayout>
+
+			<Label Text="Action Button"
+				   HorizontalTextAlignment="Center"
+				   TextColor="{StaticResource Primary}"/>
+
+			<Button Text="Show / Hide"
+					HorizontalOptions="Center"
+					FontAttributes="Bold"
+					Command="{Binding ShowHideActionButtonCommand}"
+					CommandParameter="Start"
+					TextColor="White"/>
+			
+			<Label Text="Close Button"
+				   HorizontalTextAlignment="Center"
+				   TextColor="{StaticResource Primary}"/>
+
+			<Button Text="Show / Hide"
+					HorizontalOptions="Center"
+					FontAttributes="Bold"
+					Command="{Binding ShowHideCloseButtonCommand}"
+					CommandParameter="Start"
+					TextColor="White"/>
+
+		</VerticalStackLayout>
+	</ScrollView>
+</pages:BasePage>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			    xmlns:pages="clr-namespace:UFO.Sample.Pages"
+                xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
+                xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls.Cards"
+                xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
+							   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
+
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="UFO.Sample.Pages.Controls.Cards.ParallaxCardPage"
+                Title="Parallax Card">
+
+	<Grid RowDefinitions="Auto, *"
+		  x:DataType="viewModels:AvatarCardViewModel">
+
+		<cards:UfoParallaxCard IsParallaxActive="True"
+								   CloseButtonVisible="True"
+								   Margin="50,0,50,0"
+								   CloseButtonBackground="White"
+								   CloseButtonSize="20">
+			<cards:UfoParallaxCard.CloseButtonImageSource>
+				<FontImageSource FontFamily="{StaticResource MaterialFont}"
+									 Size="15"
+									 Glyph="{x:Static icon:IconFont.Close}"
+									 Color="Black"/>
+			</cards:UfoParallaxCard.CloseButtonImageSource>
+			<cards:UfoParallaxCard.ForegroundView>
+				<Image Source="img_fg.png" 
+						   Aspect="AspectFill"/>
+			</cards:UfoParallaxCard.ForegroundView>
+			<cards:UfoParallaxCard.BackgroundView>
+				<Image Source="img_bg.jpeg"
+                           Aspect="Fill"
+						   Margin="-200, 0, -200, 0"/>
+			</cards:UfoParallaxCard.BackgroundView>
+		</cards:UfoParallaxCard>
+
+	</Grid>
+</pages:BasePage>

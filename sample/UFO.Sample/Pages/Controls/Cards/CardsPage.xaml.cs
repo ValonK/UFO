@@ -1,4 +1,4 @@
-using UFO.Sample.ViewModels.Controls;
+using UFO.Sample.ViewModels.Controls.Cards;
 
 namespace UFO.Sample.Pages.Controls.Cards;
 

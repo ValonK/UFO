@@ -5,13 +5,13 @@
 			   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
 			   xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
 			   xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
-			   xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls"
+			   xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls.Cards"
 		       xmlns:base="clr-namespace:UFO.Sample.Pages"
-               Title="Cards Page">
+               Title="Cards">
 
 	<base:BasePage.Resources>
 		<ResourceDictionary>
-			
+
 			<LinearGradientBrush x:Key="Gradient" StartPoint="0,0" EndPoint="1,1">
 				<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
 				<GradientStop Color="#fa05c9" Offset="0.8" />
@@ -20,170 +20,45 @@
 			<Image x:Key="BackgroundImage" Source="cardimage.png" Aspect="AspectFill"/>
 		</ResourceDictionary>
 	</base:BasePage.Resources>
-	
-	<ScrollView>
-		<VerticalStackLayout Padding="10"
-							 Spacing="15"					
-							 x:DataType="viewModels:CardsViewModel">
-			<cards:UfoActionCard IconSize="50"
-								 x:DataType="viewModels:CardsViewModel"
-								 IconLayoutOptions="End"
-								 Margin="50,0,50,0">
-				<cards:UfoActionCard.IconBackground>
-					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
-						<GradientStop Color="#fa05c9" Offset="0.8" />
-					</LinearGradientBrush>
-				</cards:UfoActionCard.IconBackground>
-				<cards:UfoActionCard.IconImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-								     Glyph="{x:Static icon:IconFont.Ufo}"
-									 Color="White"
-									 Size="30"/>
-				</cards:UfoActionCard.IconImageSource>
-				<cards:UfoActionCard.TopView>
-					<Image Source="cardimage.png" Aspect="AspectFill"/>
-				</cards:UfoActionCard.TopView>
-				<cards:UfoActionCard.BottomView>
-					<Grid RowDefinitions="Auto, Auto"
-						  Padding="15"
-						  RowSpacing="20">
-						<VerticalStackLayout Grid.Row="0"
-											 Spacing="10">
-							<Label Text="Action Card"
-								   FontAttributes="Bold"
-								   TextColor="Black"
-								   FontSize="22"
-								   VerticalTextAlignment="Center"/>
-							<Label Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam nonumy eirmod  magna aliquyam erat sed diam nonumy tempor invidunt"
-								   TextColor="Black"
-								   VerticalTextAlignment="Center"/>
-						</VerticalStackLayout>
 
-						<HorizontalStackLayout Grid.Row="1"
-											   Spacing="10">
-							<controls:UfoChip ChipBackground="{StaticResource Primary}"
-											  Text="Chip 1"
-											  TextColor="White">
-								<controls:UfoChip.IconImageSource>
-									<FontImageSource FontFamily="{StaticResource MaterialFont}"
-													 Glyph="{x:Static icon:IconFont.Ufo}"
-													 Color="White"
-													 Size="20"/>
-								</controls:UfoChip.IconImageSource>
-							</controls:UfoChip>
+	<Grid x:DataType="viewModels:CardsViewModel"
+		  Padding="10, 0, 10, 10">
 
-							<controls:UfoChip ChipBackground="{StaticResource Primary}"
-											  Text="Chip 2"
-											  TextColor="White">
-								<controls:UfoChip.IconImageSource>
-									<FontImageSource FontFamily="{StaticResource MaterialFont}"
-													 Glyph="{x:Static icon:IconFont.Ufo}"
-													 Color="White"
-													 Size="20"/>
-								</controls:UfoChip.IconImageSource>
-							</controls:UfoChip>
-						</HorizontalStackLayout>
-					</Grid>
-				</cards:UfoActionCard.BottomView>
-			</cards:UfoActionCard>
-
-			<cards:UfoAvatarCard AvatarTextColor="Black"
-								 AvatarBorderWidth="20"
-								 AvatarBorderColor="{StaticResource Primary}"
-								 AvatarSize="80" 
-								 AvatarText="JD"
-								 Margin="50,0,50,0"		
-								 CloseButtonVisible="True"
-								 CloseButtonSize="20">
-				<cards:UfoAvatarCard.CloseButtonImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-									 Size="15"
-									 Glyph="{x:Static icon:IconFont.Close}"
-									 Color="White"/>
-				</cards:UfoAvatarCard.CloseButtonImageSource>
-				<cards:UfoAvatarCard.CloseButtonBackground>
-					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
-						<GradientStop Color="#fa05c9" Offset="0.8" />
-					</LinearGradientBrush>
-				</cards:UfoAvatarCard.CloseButtonBackground>
-				<cards:UfoAvatarCard.TopView>
-					<Image Source="cardimage.png" Aspect="AspectFill"/>
-				</cards:UfoAvatarCard.TopView>
-				<cards:UfoAvatarCard.BottomView>
-					<Grid Padding="10">
-						<VerticalStackLayout Spacing="10"
-											 VerticalOptions="Center">
-							<HorizontalStackLayout HorizontalOptions="Center"
-												   VerticalOptions="Center">
-								<Label Text="John"
-									   FontAttributes="Bold"
-									   HorizontalOptions="Center"
+		<CollectionView ItemsSource="{Binding Cards}">
+			<CollectionView.ItemsLayout>
+				<LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
+			</CollectionView.ItemsLayout>
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Frame CornerRadius="15"
+						   Margin="0,5,0,0"
+						   Padding="10">
+						<Grid ColumnDefinitions="Auto, *"
+							  ColumnSpacing="10">
+							<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.CardBulleted}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+							<VerticalStackLayout x:DataType="viewModels:CardItem"
+												 Grid.Column="1">
+								<Label FontAttributes="Bold"
+									   FontSize="15"
+									   Text="{Binding Title}"
+									   TextColor="{StaticResource Primary}"/>
+								<Label Text="{Binding Description}"
+									   FontSize="12"
 									   TextColor="Black"/>
-								<Label Text=" Doe"
-									   FontAttributes="Bold"
-									   TextColor="Black"/>
-							</HorizontalStackLayout>
-
-							<Label Text="john.doe@gmail.com"
-								   HorizontalOptions="Center"
-							       TextColor="Black"/>
-						</VerticalStackLayout>
-					</Grid>
-				</cards:UfoAvatarCard.BottomView>
-			</cards:UfoAvatarCard>
-
-			<cards:UfoParallaxCard IsParallaxActive="True"
-								   CloseButtonVisible="True"
-								   Margin="50,0,50,0"
-								   CloseButtonBackground="White"
-								   CloseButtonSize="20">
-				<cards:UfoParallaxCard.CloseButtonImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-									 Size="15"
-									 Glyph="{x:Static icon:IconFont.Close}"
-									 Color="Black"/>
-				</cards:UfoParallaxCard.CloseButtonImageSource>
-				<cards:UfoParallaxCard.ForegroundView>
-					<Image Source="img_fg.png" 
-						   Aspect="AspectFill"/>
-				</cards:UfoParallaxCard.ForegroundView>
-				<cards:UfoParallaxCard.BackgroundView>
-					<Image Source="img_bg.jpeg"
-                           Aspect="Fill"
-						   Margin="-200, 0, -200, 0"/>
-				</cards:UfoParallaxCard.BackgroundView>
-			</cards:UfoParallaxCard>
-
-			<cards:UfoSettingsCard Title="Setting"
-								   TitleFontAttributes="Bold"
-								   TitleFontSize="14"
-								   TitleTextColor="White"
-								   Margin="5,0,5,0"		
-								   DescriptionFontSize="10"
-								   IconVerticalOptions="Center"
-								   DescriptionTextColor="White"
-								   Description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat">
-				<cards:UfoSettingsCard.Background>
-					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-						<GradientStop Color="#4961b8" Offset="0.5" />
-						<GradientStop Color="#1c2546" Offset="0.8" />
-					</LinearGradientBrush>
-				</cards:UfoSettingsCard.Background>
-				<cards:UfoSettingsCard.IconImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-									 Glyph="{x:Static icon:IconFont.Tools}"
-									 Color="White"
-									 Size="20"/>
-				</cards:UfoSettingsCard.IconImageSource>
-				<cards:UfoSettingsCard.SettingsView>
-					<Switch VerticalOptions="Center"
-							HorizontalOptions="Center"
-							ThumbColor="White"
-							OnColor="GreenYellow"/>
-				</cards:UfoSettingsCard.SettingsView>
-			</cards:UfoSettingsCard>
-		</VerticalStackLayout>
-	</ScrollView>
+							</VerticalStackLayout>
+						</Grid>
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:CardsViewModel}}, Path=CardSelectedCommand}"
+												  CommandParameter="{Binding}"/>
+						</Frame.GestureRecognizers>
+					</Frame>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</Grid>
 </base:BasePage>
