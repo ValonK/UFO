@@ -50,17 +50,17 @@
 
 #### Properties
 
-```HasActionButton``` - Activate/Deactivate Action Icon Button 
+```IsActionButtonVisible``` - Activate/Deactivate Action Button 
 
-```IconSize``` - The Action Icon Button's size 
+```ActionButtonSize``` - The Action Button's size 
 
-```IconLayoutOptions``` - Controls the icon button's position.  
+```ActionButtonLayoutOptions``` - Controls the action button's position.  
 
-```IconImageSource``` - The Icon Button's ImageSource 
+```ActionButtonImageSource``` - The Action Button's ImageSource 
 
-```IconBackground``` - The Icon Button's Background: Color or Gradient 
+```ActionButtonBackground``` - The Action Button's Background: Color or Gradient 
 
-```IconCommand``` - The Icon Button's Command 
+```ActionButtonCommand``` - The Action Button's Command 
 
 ```TopView``` - The Action Card's Top View 
 

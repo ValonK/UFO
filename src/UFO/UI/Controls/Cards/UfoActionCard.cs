@@ -7,12 +7,12 @@ namespace UFO.UI.Controls.Cards;
 
 public class UfoActionCard : UfoCard
 {	
-	public static readonly BindableProperty HasActionButtonProperty = BindableProperty.Create(nameof(HasActionButton), typeof(bool), typeof(UfoActionCard), defaultValue: true);
-	public static readonly BindableProperty IconCommandProperty = BindableProperty.Create(nameof(IconCommand), typeof(ICommand), typeof(UfoActionCard));
-	public static readonly BindableProperty IconBackgroundProperty = BindableProperty.Create(nameof(IconBackground), typeof(Brush), typeof(UfoActionCard), new SolidColorBrush(UfoColors.UfoPrimaryColor));
-	public static readonly BindableProperty IconImageSourceProperty = BindableProperty.Create(nameof(IconImageSource), typeof(ImageSource), typeof(UfoActionCard));
-	public static readonly BindableProperty IconLayoutOptionsProperty = BindableProperty.Create(nameof(IconLayoutOptions), typeof(LayoutOptions), typeof(UfoActionCard), defaultValue: LayoutOptions.End);
-	public static readonly BindableProperty IconSizeProperty = BindableProperty.Create(nameof(IconSize), typeof(double), typeof(UfoActionCard), defaultValue: 60.0);
+	public static readonly BindableProperty IsActionButtonVisibleProperty = BindableProperty.Create(nameof(IsActionButtonVisible), typeof(bool), typeof(UfoActionCard), defaultValue: true);
+	public static readonly BindableProperty ActionButtonCommandProperty = BindableProperty.Create(nameof(ActionButtonCommand), typeof(ICommand), typeof(UfoActionCard));
+	public static readonly BindableProperty ActionButtonBackgroundProperty = BindableProperty.Create(nameof(ActionButtonBackground), typeof(Brush), typeof(UfoActionCard), new SolidColorBrush(UfoColors.UfoPrimaryColor));
+	public static readonly BindableProperty ActionButtonImageSourceProperty = BindableProperty.Create(nameof(ActionButtonImageSource), typeof(ImageSource), typeof(UfoActionCard));
+	public static readonly BindableProperty ActionButtonLayoutOptionsProperty = BindableProperty.Create(nameof(ActionButtonLayoutOptions), typeof(LayoutOptions), typeof(UfoActionCard), defaultValue: LayoutOptions.End);
+	public static readonly BindableProperty ActionButtonSizeProperty = BindableProperty.Create(nameof(ActionButtonSize), typeof(double), typeof(UfoActionCard), defaultValue: 60.0);
 	public static readonly BindableProperty TopViewProperty = BindableProperty.Create(nameof(TopView), typeof(View), typeof(UfoAvatarCard));
 	public static readonly BindableProperty BottomViewProperty = BindableProperty.Create(nameof(BottomView), typeof(View), typeof(UfoAvatarCard));
 	
@@ -21,40 +21,40 @@ public class UfoActionCard : UfoCard
 		Content = new ActionCardLayoutBuilder(this).Build();
 	}
 
-	public bool HasActionButton
+	public bool IsActionButtonVisible
 	{
-		get => (bool)GetValue(HasActionButtonProperty);
-		set => SetValue(HasActionButtonProperty, value);
+		get => (bool)GetValue(IsActionButtonVisibleProperty);
+		set => SetValue(IsActionButtonVisibleProperty, value);
 	}
 
-	public ICommand IconCommand
+	public ICommand ActionButtonCommand
 	{
-		get => (ICommand)GetValue(IconCommandProperty);
-		set => SetValue(IconCommandProperty, value);
+		get => (ICommand)GetValue(ActionButtonCommandProperty);
+		set => SetValue(ActionButtonCommandProperty, value);
 	}
 
-	public Brush IconBackground
+	public Brush ActionButtonBackground
 	{
-		get => (Brush)GetValue(IconBackgroundProperty);
-		set => SetValue(IconBackgroundProperty, value);
+		get => (Brush)GetValue(ActionButtonBackgroundProperty);
+		set => SetValue(ActionButtonBackgroundProperty, value);
 	}
 
-	public ImageSource IconImageSource
+	public ImageSource ActionButtonImageSource
 	{
-		get => (ImageSource)GetValue(IconImageSourceProperty);
-		set => SetValue(IconImageSourceProperty, value);
+		get => (ImageSource)GetValue(ActionButtonImageSourceProperty);
+		set => SetValue(ActionButtonImageSourceProperty, value);
 	}
 
-	public LayoutOptions IconLayoutOptions
+	public LayoutOptions ActionButtonLayoutOptions
 	{
-		get => (LayoutOptions)GetValue(IconLayoutOptionsProperty);
-		set => SetValue(IconLayoutOptionsProperty, value);
+		get => (LayoutOptions)GetValue(ActionButtonLayoutOptionsProperty);
+		set => SetValue(ActionButtonLayoutOptionsProperty, value);
 	}
 
-	public double IconSize
+	public double ActionButtonSize
 	{
-		get => (double)GetValue(IconSizeProperty);
-		set => SetValue(IconSizeProperty, value);
+		get => (double)GetValue(ActionButtonSizeProperty);
+		set => SetValue(ActionButtonSizeProperty, value);
 	}
 	
 	public View TopView
@@ -113,32 +113,32 @@ internal sealed class ActionCardLayoutBuilder : CardLayoutBuilder
 		
 		if (e.PropertyName == nameof(_actionCard.BottomView)) _bottomView.Content = _actionCard.BottomView;
 		if (e.PropertyName == nameof(_actionCard.TopView)) _topView.Content = _actionCard.TopView;
-		if (e.PropertyName == nameof(_actionCard.IconLayoutOptions))
+		if (e.PropertyName == nameof(_actionCard.ActionButtonLayoutOptions))
 		{
-			_actionButton.HorizontalOptions = _actionCard.IconLayoutOptions;
+			_actionButton.HorizontalOptions = _actionCard.ActionButtonLayoutOptions;
 			SetActionButton();
 		}
 		
-		if (e.PropertyName == nameof(_actionCard.IconImageSource)) _actionButton.ImageSource = _actionCard.IconImageSource;
-		if (e.PropertyName == nameof(_actionCard.IconBackground)) _actionButton.Background = _actionCard.IconBackground;
-		if (e.PropertyName == nameof(_actionCard.IconCommand)) _actionButton.Command = _actionCard.IconCommand;
-		if (e.PropertyName == nameof(_actionCard.HasActionButton)) _actionButton.IsVisible = _actionCard.HasActionButton;
+		if (e.PropertyName == nameof(_actionCard.ActionButtonImageSource)) _actionButton.ImageSource = _actionCard.ActionButtonImageSource;
+		if (e.PropertyName == nameof(_actionCard.ActionButtonBackground)) _actionButton.Background = _actionCard.ActionButtonBackground;
+		if (e.PropertyName == nameof(_actionCard.ActionButtonCommand)) _actionButton.Command = _actionCard.ActionButtonCommand;
+		if (e.PropertyName == nameof(_actionCard.IsActionButtonVisible)) _actionButton.IsVisible = _actionCard.IsActionButtonVisible;
 
-		if (e.PropertyName == nameof(_actionCard.IconSize)) SetActionButton();
+		if (e.PropertyName == nameof(_actionCard.ActionButtonSize)) SetActionButton();
 		
 		SetCloseButtonProperties(e.PropertyName, _actionCard);
 	}
 
 	private void SetActionButton()
 	{
-		var size = _actionCard.IconSize;
+		var size = _actionCard.ActionButtonSize;
 		_actionButton.HeightRequest = size;
 		_actionButton.WidthRequest = size;
 
 		var cornerRadius = (int)(size / 2);
 		_actionButton.CornerRadius = cornerRadius;
 
-		_actionButton.Margin = _actionCard.IconLayoutOptions.Alignment switch
+		_actionButton.Margin = _actionCard.ActionButtonLayoutOptions.Alignment switch
 		{
 			LayoutAlignment.Start => new Thickness(10, 0, 0, -cornerRadius),
 			LayoutAlignment.Center => new Thickness(0, 0, 0, -cornerRadius),

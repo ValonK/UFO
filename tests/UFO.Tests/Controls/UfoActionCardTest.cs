@@ -12,11 +12,11 @@ public class UfoActionCardTest
     {
         var ufoActionCard = new UfoActionCard
         {
-            HasActionButton = true,
-            IconBackground = Colors.Red,
-            IconImageSource = new FileImageSource(),
-            IconLayoutOptions = LayoutOptions.Fill,
-            IconSize = 20,
+            IsActionButtonVisible = true,
+            ActionButtonBackground = Colors.Red,
+            ActionButtonImageSource = new FileImageSource(),
+            ActionButtonLayoutOptions = LayoutOptions.Fill,
+            ActionButtonSize = 20,
             CornerRadius = 21,
             BorderWidth = 22,
             BorderColor = Colors.Yellow,
@@ -28,11 +28,11 @@ public class UfoActionCardTest
             CloseButtonSize = 30.0
         };
 
-        Assert.True(ufoActionCard.HasActionButton);
-        Assert.Equal(new SolidColorBrush(Colors.Red), ufoActionCard.IconBackground);
-        Assert.True(ufoActionCard.IconImageSource is FileImageSource);
-        Assert.Equal(LayoutOptions.Fill, ufoActionCard.IconLayoutOptions);
-        Assert.Equal(20, ufoActionCard.IconSize);
+        Assert.True(ufoActionCard.IsActionButtonVisible);
+        Assert.Equal(new SolidColorBrush(Colors.Red), ufoActionCard.ActionButtonBackground);
+        Assert.True(ufoActionCard.ActionButtonImageSource is FileImageSource);
+        Assert.Equal(LayoutOptions.Fill, ufoActionCard.ActionButtonLayoutOptions);
+        Assert.Equal(20, ufoActionCard.ActionButtonSize);
         Assert.Equal(21, ufoActionCard.CornerRadius);
         Assert.Equal(22, ufoActionCard.BorderWidth);
         Assert.Equal(Colors.Yellow, ufoActionCard.BorderColor);
@@ -48,7 +48,7 @@ public class UfoActionCardTest
     public void HasActionButtonDefaultValue()
     {
         var ufoActionCard = new UfoActionCard();
-        Assert.True(ufoActionCard.HasActionButton);
+        Assert.True(ufoActionCard.IsActionButtonVisible);
     }
     
     [Fact]
@@ -56,7 +56,7 @@ public class UfoActionCardTest
     {
         var ufoActionCard = new UfoActionCard();
 
-        var solidColorBrush = ufoActionCard.IconBackground as SolidColorBrush;
+        var solidColorBrush = ufoActionCard.ActionButtonBackground as SolidColorBrush;
         Assert.Equal(new SolidColorBrush(Color.FromArgb("#7c54d4")).Color, solidColorBrush.Color);
     }
 
@@ -64,14 +64,14 @@ public class UfoActionCardTest
     public void IconLayoutOptionsDefaultValue()
     {
         var ufoActionCard = new UfoActionCard();
-        Assert.Equal(LayoutOptions.End, ufoActionCard.IconLayoutOptions);
+        Assert.Equal(LayoutOptions.End, ufoActionCard.ActionButtonLayoutOptions);
     }
     
     [Fact]
     public void IconSizeDefaultValue()
     {
         var ufoActionCard = new UfoActionCard();
-        Assert.Equal(60.0, ufoActionCard.IconSize);
+        Assert.Equal(60.0, ufoActionCard.ActionButtonSize);
     }
     
     [Fact]
