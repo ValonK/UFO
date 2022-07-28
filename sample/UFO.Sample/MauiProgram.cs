@@ -26,7 +26,6 @@ public static class MauiProgram
 			});
 		builder.Services.AddTransient<MainPage>();
 		builder.Services.AddTransient<MainViewModel>();
-		
 		RegisterControls(builder.Services);
 		RegisterDialogs(builder.Services);
 		RegisterCards(builder.Services);

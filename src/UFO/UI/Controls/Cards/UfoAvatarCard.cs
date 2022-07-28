@@ -92,6 +92,7 @@ internal sealed class AvatarCardLayoutBuilder : CardLayoutBuilder
 	private readonly AvatarView _avatarView = new()
 	{
 		VerticalOptions = LayoutOptions.End,
+		BackgroundColor = Colors.White
 	};
 
 	public AvatarCardLayoutBuilder(UfoAvatarCard ufoAvatarCard)

@@ -18,7 +18,7 @@ public class UfoSettingsCard : UfoCard
 	public static readonly BindableProperty DescriptionFontAttributesProperty = BindableProperty.Create(nameof(TitleFontAttributes), typeof(FontAttributes), typeof(UfoSettingsCard));
 	public static readonly BindableProperty DescriptionFontSizeProperty = BindableProperty.Create(nameof(DescriptionFontSize), typeof(double), typeof(UfoSettingsCard), defaultValue: 17.0);
 	public static readonly BindableProperty SettingsViewProperty = BindableProperty.Create(nameof(SettingsView), typeof(View), typeof(UfoSettingsCard));
-
+	
 	public UfoSettingsCard()
 	{
 		Content = new SettingsCardBuilder(this).Build();
@@ -164,6 +164,8 @@ internal sealed class SettingsCardBuilder : CardLayoutBuilder
 		if (e.PropertyName == nameof(_ufoSettingsCard.DescriptionFontSize)) _descriptionLabel.FontSize = _ufoSettingsCard.DescriptionFontSize;
 		if (e.PropertyName == nameof(_ufoSettingsCard.SettingsView)) _settingsContentView.Content = _ufoSettingsCard.SettingsView;
 		if (e.PropertyName == nameof(_ufoSettingsCard.IconImageSource)) _iconImage.Source = _ufoSettingsCard.IconImageSource;
+
+		if (e.PropertyName == nameof(_ufoSettingsCard.HeightRequest)) CardFrameContainer.HeightRequest = _ufoSettingsCard.HeightRequest;
 		if (e.PropertyName == nameof(_ufoSettingsCard.IconVerticalOptions))
 		{
 			_iconImage.Margin = _ufoSettingsCard.IconVerticalOptions.Alignment switch

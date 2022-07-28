@@ -17,30 +17,15 @@
 								 IsActionButtonVisible="{Binding IsActionButtonVisible}"
 								 CloseButtonVisible="{Binding IsCloseButtonVisible}"
 								 Command="{Binding CardCommand}"
+								 HorizontalOptions="{OnPlatform WinUI=Center}"
 								 CloseButtonCommand="{Binding CardCloseCommand}"
 								 ActionButtonCommand="{Binding IconCommand}"
-								 ActionButtonLayoutOptions="{Binding ActionButtonLayoutOption}">
-				<cards:UfoActionCard.CloseButtonImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-								     Glyph="{x:Static icon:IconFont.Close}"
-									 Color="White"
-									 Size="15"/>
-				</cards:UfoActionCard.CloseButtonImageSource>
-				<cards:UfoActionCard.ActionButtonBackground>
-					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-						<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
-						<GradientStop Color="#fa05c9" Offset="0.8" />
-					</LinearGradientBrush>
-				</cards:UfoActionCard.ActionButtonBackground>
-				<cards:UfoActionCard.ActionButtonImageSource>
-					<FontImageSource FontFamily="{StaticResource MaterialFont}"
-								     Glyph="{x:Static icon:IconFont.Ufo}"
-									 Color="White"
-									 Size="30"/>
-				</cards:UfoActionCard.ActionButtonImageSource>
-				<cards:UfoActionCard.TopView>
-					<Image Source="cardimage.png" Aspect="AspectFill"/>
-				</cards:UfoActionCard.TopView>
+								 ActionButtonBackground="{StaticResource Gradient}"
+								 CloseButtonBackground="{StaticResource Gradient}"
+								 ActionButtonLayoutOptions="{Binding ActionButtonLayoutOption}"
+								 CloseButtonImageSource="{StaticResource CloseButtonImageSource}"
+								 ActionButtonImageSource="{StaticResource UfoFontImageSource}"
+								 TopView="{StaticResource UfoImage}">
 				<cards:UfoActionCard.BottomView>
 					<Grid RowDefinitions="Auto, Auto"
 						  Padding="15"

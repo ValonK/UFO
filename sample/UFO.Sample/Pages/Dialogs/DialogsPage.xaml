@@ -4,16 +4,65 @@
 			   xmlns:page="clr-namespace:UFO.Sample.Pages"   
 			   xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels"
 			   x:Class="UFO.Sample.Pages.Dialogs.DialogsPage"
+			   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
                Title="DialogsPage"
 				x:DataType="viewModels:DialogsViewModel">
-	
+
 	<ScrollView>
-		<VerticalStackLayout Margin="10,30,10,0"
-							 Spacing="10">
-			<Button Text="Alert Dialog"
-				Command="{Binding ShowAlertDialogCommand}"/>
-			<Button Text="Confirm Dialog"
-				Command="{Binding ShowConfirmDialogCommand}"/>
+		<VerticalStackLayout
+            Spacing="15"
+            Padding="10,10,10,10"
+            VerticalOptions="Start">
+
+			<Frame Style="{StaticResource FrameStyle}">
+				<Grid ColumnDefinitions="Auto, *"
+					  ColumnSpacing="10">
+					<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.InformationOutline}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+					<VerticalStackLayout Grid.Column="1">
+						<Label FontAttributes="Bold"
+									   FontSize="15"
+									   Text="Alert"
+									   TextColor="{StaticResource Primary}"/>
+						<Label Text="Alert with Image"
+									   FontSize="12"
+									   TextColor="Black"/>
+					</VerticalStackLayout>
+				</Grid>
+
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ShowAlertDialogCommand}"/>
+				</Frame.GestureRecognizers>
+			</Frame>
+
+			<Frame Style="{StaticResource FrameStyle}">
+				<Grid ColumnDefinitions="Auto, *"
+					  ColumnSpacing="10">
+					<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.LightbulbQuestionOutline}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+					<VerticalStackLayout Grid.Column="1">
+						<Label FontAttributes="Bold"
+									   FontSize="15"
+									   Text="Confirm"
+									   TextColor="{StaticResource Primary}"/>
+						<Label Text="Confirm with CheckBox, Confirm with Image"
+									   FontSize="12"
+									   TextColor="Black"/>
+					</VerticalStackLayout>
+				</Grid>
+
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ShowConfirmDialogCommand}"/>
+				</Frame.GestureRecognizers>
+			</Frame>
 		</VerticalStackLayout>
 	</ScrollView>
 </page:BasePage>

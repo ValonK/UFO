@@ -1,6 +1,8 @@
-﻿namespace UFO.Sample.ViewModels.Controls.Cards;
+﻿using CommunityToolkit.Mvvm.Input;
 
-public class ParallaxCardViewModel : BaseViewModel
+namespace UFO.Sample.ViewModels.Controls.Cards;
+
+public partial class ParallaxCardViewModel : CardViewModel
 {
-	
+
 }

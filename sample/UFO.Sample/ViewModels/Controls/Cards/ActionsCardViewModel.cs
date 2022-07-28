@@ -3,17 +3,10 @@ using UFO.UI.Dialogs;
 
 namespace UFO.Sample.ViewModels.Controls.Cards;
 
-public partial class ActionsCardViewModel : BaseViewModel
+public partial class ActionsCardViewModel : CardViewModel
 {
-	private readonly IUfoDialog _ufoDialog;
 	private LayoutOptions _actionButtonLayoutOption;
-	private bool _isCloseButtonVisible;
 	private bool _isActionButtonVisible;
-
-	public ActionsCardViewModel(IUfoDialog ufoDialog)
-	{
-		_ufoDialog = ufoDialog;
-	}
 
 	public LayoutOptions ActionButtonLayoutOption
 	{
@@ -22,16 +15,6 @@ public partial class ActionsCardViewModel : BaseViewModel
 		{
 			_actionButtonLayoutOption = value;
 			OnPropertyChanged(nameof(ActionButtonLayoutOption));
-		}
-	}
-
-	public bool IsCloseButtonVisible
-	{
-		get => _isCloseButtonVisible;
-		set
-		{
-			_isCloseButtonVisible = value;
-			OnPropertyChanged(nameof(IsCloseButtonVisible));
 		}
 	}
 
@@ -46,16 +29,7 @@ public partial class ActionsCardViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
-	public void Card() => _ufoDialog.ShowAlertDialogAsync("Action Card", "Card Command");
-
-	[RelayCommand]
-	public void CardClose() => _ufoDialog.ShowAlertDialogAsync("Action Card", "Card Close Command");
-
-	[RelayCommand]
-	public void Icon() => _ufoDialog.ShowAlertDialogAsync("Action Card", "Icon Command");
-
-	[RelayCommand]
-	public void ShowHideCloseButton() => IsCloseButtonVisible = !IsCloseButtonVisible;
+	public void Icon() => UfoDialog.ShowAlertDialogAsync("Action Card", "Icon Command");
 
 	[RelayCommand]
 	public void ShowHideActionButton()

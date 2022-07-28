@@ -2,26 +2,91 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UFO.Sample.Pages.Controls.ControlsPage"
+			 xmlns:icon="clr-namespace:UFO.Sample.Helpers"
 			 xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls"
              Title="ControlsPage">
 	<ScrollView>
 		<VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Spacing="15"
+            Padding="10, 10, 10, 0"
+			x:DataType="viewModels:ControlsViewModel"
+            VerticalOptions="Start">
 
-			<Button Command="{Binding OpenChipsCommand}"
-					Text="Chips"
-					x:DataType="viewModels:ControlsViewModel"/>
-			
-			<Button Command="{Binding OpenCardsCommand}"
-					Text="Cards"
-					x:DataType="viewModels:ControlsViewModel"/>
+			<Frame Style="{StaticResource FrameStyle}">
+				<Grid ColumnDefinitions="Auto, *"
+					  ColumnSpacing="10">
+					
+					<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.CircleMultiple}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+					
+					<Label FontAttributes="Bold"
+						   Grid.Column="1"
+						   TextColor="{StaticResource Primary}"
+						   FontSize="15"
+						   Text="Chips"/>
+				</Grid>
 
-			<Button Command="{Binding OpenSelectionControlsCommand}"
-					Text="SelectionControls"
-					x:DataType="viewModels:ControlsViewModel"/>
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding OpenChipsCommand}"/>
+				</Frame.GestureRecognizers>
+			</Frame>
 
+			<Frame Style="{StaticResource FrameStyle}">
+				<Grid ColumnDefinitions="Auto, *"
+					  ColumnSpacing="10">
+
+					<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.CardBulleted}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+					<VerticalStackLayout Grid.Column="1">
+						<Label FontAttributes="Bold"
+									   FontSize="15"
+									   Text="Cards"
+									   TextColor="{StaticResource Primary}"/>
+						<Label Text="Action, Avatar, Parallax, Settings"
+									   FontSize="12"
+									   TextColor="Black"/>
+					</VerticalStackLayout>
+				</Grid>
+
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding OpenCardsCommand}"/>
+				</Frame.GestureRecognizers>
+			</Frame>
+
+			<Frame Style="{StaticResource FrameStyle}">
+				<Grid ColumnDefinitions="Auto, *"
+					  ColumnSpacing="10">
+
+					<Label FontFamily="{StaticResource MaterialFont}"
+								   Text="{x:Static icon:IconFont.Check}"
+								   Grid.Column="0"
+								   Margin="0,2,0,0"
+								   VerticalTextAlignment="Start"
+								   TextColor="{StaticResource Primary}"/>
+
+					<VerticalStackLayout Grid.Column="1">
+						<Label FontAttributes="Bold"
+									   FontSize="15"
+									   Text="Selection Controls"
+									   TextColor="{StaticResource Primary}"/>
+						<Label Text="CheckBox"
+									   FontSize="12"
+									   TextColor="Black"/>
+					</VerticalStackLayout>
+				</Grid>
+
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding OpenSelectionControlsCommand}"/>
+				</Frame.GestureRecognizers>
+			</Frame>
 		</VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

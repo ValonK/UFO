@@ -92,6 +92,11 @@ internal sealed class ActionCardLayoutBuilder : CardLayoutBuilder
 
 	protected override void Construct()
 	{
+		if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
+		{
+			_actionCard.MaximumWidthRequest = 450;
+		}
+
 		ControlGridContainer.RowDefinitions.Add(new(GridLength.Star));
 		ControlGridContainer.RowDefinitions.Add(new(GridLength.Star));
 		ControlGridContainer.Children.Add(_bottomView);

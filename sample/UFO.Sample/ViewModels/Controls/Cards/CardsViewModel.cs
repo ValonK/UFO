@@ -6,15 +6,8 @@ using UFO.UI.Dialogs;
 
 namespace UFO.Sample.ViewModels.Controls.Cards;
 
-public partial class CardsViewModel : BaseViewModel
+public partial class CardsViewModel : CardViewModel
 {
-	private readonly IUfoDialog _ufoDialog;
-
-	public CardsViewModel(IUfoDialog ufoDialog)
-	{
-		_ufoDialog = ufoDialog;
-	}
-
 	public ObservableCollection<CardItem> Cards { get; } = new();
 
 	[RelayCommand]
@@ -24,7 +17,7 @@ public partial class CardsViewModel : BaseViewModel
 		{
 			if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
 			{
-				await _ufoDialog.ShowAlertDialogAsync("Parallax Card", "Parallax Card is not supported for Windows");
+				await UfoDialog.ShowAlertDialogAsync("Parallax Card", "Parallax Card is not supported for Windows");
 				return;
 			}
 		}

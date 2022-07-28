@@ -2,9 +2,35 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:icon="clr-namespace:UFO.Sample.Helpers">
 
 	<x:String x:Key="MaterialFont">MaterialDesignIcons</x:String>
+
+	<LinearGradientBrush StartPoint="0,0" EndPoint="1,1" x:Key="Gradient">
+		<GradientStop Color="{StaticResource Primary}" Offset="0.5" />
+		<GradientStop Color="#fa05c9" Offset="0.8" />
+	</LinearGradientBrush>
+
+	<Style TargetType="Frame" x:Key="FrameStyle">
+		<Setter Property="CornerRadius" Value="15"/>
+		<Setter Property="Padding" Value="10"/>
+		<Setter Property="HeightRequest" Value="60"/>
+	</Style>
+
+	<FontImageSource FontFamily="{StaticResource MaterialFont}"
+					 x:Key="CloseButtonImageSource"
+					 Size="15"
+					 Glyph="{x:Static icon:IconFont.Close}"
+					 Color="White"/>
+
+	<FontImageSource FontFamily="{StaticResource MaterialFont}"
+					 x:Key="UfoFontImageSource"					 
+                     Glyph="{x:Static icon:IconFont.Ufo}"
+                     Color="White"
+                     Size="30"/>
+
+	<Image Source="cardimage.png" Aspect="AspectFill" x:Key="UfoImage"/>
 
 	<Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />

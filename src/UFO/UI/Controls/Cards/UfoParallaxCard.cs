@@ -37,8 +37,8 @@ public class UfoParallaxCard : UfoCard
 internal sealed class ParallaxCardLayoutBuilder : CardLayoutBuilder
 {
 	private readonly UfoParallaxCard _parallaxCard;
-	private readonly ContentView _foregroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.End};
-	private readonly ContentView _backgroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.Fill};
+	private readonly ContentView _foregroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.End, IsClippedToBounds = true};
+	private readonly ContentView _backgroundView = new() { Padding = 0, VerticalOptions = LayoutOptions.Fill, IsClippedToBounds = true};
 	
 	public ParallaxCardLayoutBuilder(UfoParallaxCard parallaxCard)
 	{
@@ -69,6 +69,7 @@ internal sealed class ParallaxCardLayoutBuilder : CardLayoutBuilder
 		SetCloseButtonProperties(e.PropertyName, _parallaxCard);
 		if (e.PropertyName == nameof(_parallaxCard.BackgroundView)) _backgroundView.Content = _parallaxCard.BackgroundView;
 		if (e.PropertyName == nameof(_parallaxCard.ForegroundView)) _foregroundView.Content = _parallaxCard.ForegroundView;
+
 		if (e.PropertyName == nameof(_parallaxCard.IsParallaxActive))
 		{
 			if (_parallaxCard.IsParallaxActive)

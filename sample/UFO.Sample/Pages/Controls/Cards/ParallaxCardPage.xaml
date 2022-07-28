@@ -4,36 +4,44 @@
                 xmlns:cards="clr-namespace:UFO.UI.Controls.Cards;assembly=UFO"
                 xmlns:viewModels="clr-namespace:UFO.Sample.ViewModels.Controls.Cards"
                 xmlns:controls="clr-namespace:UFO.UI.Controls;assembly=UFO"
-							   xmlns:icon="clr-namespace:UFO.Sample.Helpers"
-
+				xmlns:icon="clr-namespace:UFO.Sample.Helpers"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 x:Class="UFO.Sample.Pages.Controls.Cards.ParallaxCardPage"
                 Title="Parallax Card">
 
-	<Grid RowDefinitions="Auto, *"
-		  x:DataType="viewModels:AvatarCardViewModel">
-
-		<cards:UfoParallaxCard IsParallaxActive="True"
-								   CloseButtonVisible="True"
+	<ScrollView>
+		<VerticalStackLayout x:DataType="viewModels:ParallaxCardViewModel" 
+							 Spacing="20" 
+							 Margin="30,30,30,50">
+			<cards:UfoParallaxCard IsParallaxActive="True"
 								   Margin="50,0,50,0"
-								   CloseButtonBackground="White"
+								   CloseButtonCommand="{Binding CardCloseCommand}"
+								   CloseButtonVisible="{Binding IsCloseButtonVisible}"
+								   CloseButtonImageSource="{StaticResource CloseButtonImageSource}"
+								   CloseButtonBackground="{StaticResource Gradient}"
 								   CloseButtonSize="20">
-			<cards:UfoParallaxCard.CloseButtonImageSource>
-				<FontImageSource FontFamily="{StaticResource MaterialFont}"
-									 Size="15"
-									 Glyph="{x:Static icon:IconFont.Close}"
-									 Color="Black"/>
-			</cards:UfoParallaxCard.CloseButtonImageSource>
-			<cards:UfoParallaxCard.ForegroundView>
-				<Image Source="img_fg.png" 
+				<cards:UfoParallaxCard.ForegroundView>
+					<Image Source="img_fg.png" 
 						   Aspect="AspectFill"/>
-			</cards:UfoParallaxCard.ForegroundView>
-			<cards:UfoParallaxCard.BackgroundView>
-				<Image Source="img_bg.jpeg"
+				</cards:UfoParallaxCard.ForegroundView>
+				<cards:UfoParallaxCard.BackgroundView>
+					<Image Source="img_bg.jpeg"
                            Aspect="Fill"
 						   Margin="-200, 0, -200, 0"/>
-			</cards:UfoParallaxCard.BackgroundView>
-		</cards:UfoParallaxCard>
+				</cards:UfoParallaxCard.BackgroundView>
+			</cards:UfoParallaxCard>
 
-	</Grid>
+			<Label Text="Close Button"
+				   HorizontalTextAlignment="Center"
+				   TextColor="{StaticResource Primary}"/>
+
+			<Button Text="Show / Hide"
+					HorizontalOptions="Center"
+					FontAttributes="Bold"
+					Command="{Binding ShowHideCloseButtonCommand}"
+					CommandParameter="Start"
+					TextColor="White"/>
+		</VerticalStackLayout>
+	</ScrollView>
+	
 </pages:BasePage>

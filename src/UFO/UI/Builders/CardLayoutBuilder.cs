@@ -11,7 +11,7 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
 
     protected CardLayoutBuilder()
     {
-        _cardFrameContainer = new() { Padding = 0, CornerRadius = UfoSizes.DefaultCornerRadius, IsClippedToBounds = true, BackgroundColor = Colors.Transparent };
+        _cardFrameContainer = new() { Padding = 0, CornerRadius = UfoSizes.DefaultCornerRadius, IsClippedToBounds = true };
         _controlGridContainer = new();
         _closeButton = new()
         {
@@ -34,12 +34,9 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
     {
         switch (propertyName)
         {
-            case nameof(UfoCard.Background):
-                CardFrameContainer.Background= ufoCard.Background;
+            case nameof(UfoCard.CardBackground):
+                CardFrameContainer.Background = ufoCard.CardBackground;
                 break;
-			case nameof(UfoCard.BackgroundColor):
-				CardFrameContainer.BackgroundColor = ufoCard.BackgroundColor;
-				break;
 			case nameof(UfoCard.BorderColor):
                 CardFrameContainer.BorderColor = ufoCard.BorderColor;
                 break;

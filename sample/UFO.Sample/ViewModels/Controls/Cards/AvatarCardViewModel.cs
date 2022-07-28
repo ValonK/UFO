@@ -1,6 +1,6 @@
 ﻿namespace UFO.Sample.ViewModels.Controls.Cards;
 
-public partial class AvatarCardViewModel : BaseViewModel
+public partial class AvatarCardViewModel : CardViewModel
 {
 
 }
