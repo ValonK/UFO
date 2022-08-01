@@ -5,15 +5,18 @@ namespace UFO.UI.Builders;
 
 internal abstract class CardLayoutBuilder : LayoutBuilder
 {
-    private readonly Frame _cardFrameContainer;
-    private readonly Grid _controlGridContainer;
-    private readonly Button _closeButton;
-
     protected CardLayoutBuilder()
     {
-        _cardFrameContainer = new() { Padding = 0, CornerRadius = UfoSizes.DefaultCornerRadius, IsClippedToBounds = true };
-        _controlGridContainer = new();
-        _closeButton = new()
+        CardFrameContainer = new()
+        {
+            Padding = 0,
+            CornerRadius = UfoSizes.DefaultCornerRadius,
+            IsClippedToBounds = true
+        };
+        
+        ControlGridContainer = new();
+        
+        CloseButton = new()
         {
             Padding = 0,
             VerticalOptions = LayoutOptions.Start,
@@ -26,9 +29,9 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
         };
     }
 
-    protected Frame CardFrameContainer => _cardFrameContainer;
-    protected Grid ControlGridContainer => _controlGridContainer;
-    protected Button CloseButton => _closeButton;
+    protected Frame CardFrameContainer { get; }
+    protected Grid ControlGridContainer { get; }
+    protected Button CloseButton { get; }
 
     protected void SetCardFrameProperties(string propertyName, UfoCard ufoCard)
     {
@@ -37,21 +40,21 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
             case nameof(UfoCard.CardBackground):
                 CardFrameContainer.Background = ufoCard.CardBackground;
                 break;
-			case nameof(UfoCard.BorderColor):
+            case nameof(UfoCard.BorderColor):
                 CardFrameContainer.BorderColor = ufoCard.BorderColor;
                 break;
             case nameof(UfoCard.CornerRadius):
                 CardFrameContainer.CornerRadius = ufoCard.CornerRadius;
                 break;
             case nameof(UfoCard.Command):
+            {
+                var tapGestureRecognizer = new TapGestureRecognizer
                 {
-					var tapGestureRecognizer = new TapGestureRecognizer
-					{
-						Command = ufoCard.Command
-					};
-					CardFrameContainer.GestureRecognizers.Clear();
-					CardFrameContainer.GestureRecognizers.Add(tapGestureRecognizer);
-				}
+                    Command = ufoCard.Command
+                };
+                CardFrameContainer.GestureRecognizers.Clear();
+                CardFrameContainer.GestureRecognizers.Add(tapGestureRecognizer);
+            }
                 break;
         }
     }
@@ -73,13 +76,13 @@ internal abstract class CardLayoutBuilder : LayoutBuilder
                 CloseButton.Command = ufoCard.CloseButtonCommand;
                 break;
             case nameof(UfoCard.CloseButtonSize):
-                {
-                    var size = ufoCard.CloseButtonSize;
-                    CloseButton.HeightRequest = size;
-                    CloseButton.WidthRequest = size;
-                    CloseButton.CornerRadius = (int)(size / 2);
-                    break;
-                }
+            {
+                var size = ufoCard.CloseButtonSize;
+                CloseButton.HeightRequest = size;
+                CloseButton.WidthRequest = size;
+                CloseButton.CornerRadius = (int)(size / 2);
+                break;
+            }
         }
     }
 }

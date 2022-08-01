@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Maui.Views;
+
 namespace UFO.UI.Dialogs;
 
 public abstract class Dialog : Popup
 {
 	protected Dialog()
 	{
-		CanBeDismissedByTappingOutsideOfPopup = false;
 		Color = Colors.Transparent;
 	}
 	

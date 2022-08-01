@@ -5,6 +5,8 @@ namespace UFO.UI.Dialogs.Configs;
 
 public abstract class DialogConfig
 {
+    public bool CloseWhenBackgroundIsClicked { get; set; } = true;
+
     public Color TitleFontColor { get; set; } = Colors.Black;
 
     public string TitleFontFamily { get; set; }
@@ -42,4 +44,21 @@ public abstract class DialogConfig
     public string DescriptionFontFamily { get; set; }
 
     public Color DescriptionFontColor { get; set; } = Color.FromArgb("#8f949a");
+    
+    
+    public Color CheckBoxTextColor { get; set; } = Color.FromArgb("#808692");
+
+    public bool ShowCheckBox { get; set; } = false;
+
+    public string CheckBoxText { get; set; } = "Dont ask again";
+    
+    public DialogButtonConfig ConfirmButtonConfig { get; set; } = new DialogButtonConfig
+    {
+        Background = new SolidColorBrush(UfoPrimaryColor),
+        TextColor = Colors.White,
+        BorderWidth = UfoSizes.DefaultButtonBorderWidth,
+        BorderColor = UfoPrimaryColor
+    };
+
+
 }
